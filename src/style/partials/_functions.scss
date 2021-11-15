@@ -1,0 +1,9 @@
+// Functions
+
+@function pxToRem($px) {
+  @return ($px / 16px) * 1rem;
+}
+
+@function pxToEm($px) {
+  @return ($px / 16px) * 1em;
+}

@@ -1,0 +1,35 @@
+// HEADER
+
+header {
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: pxToRem(40px) 0;
+  position: absolute;
+  width: 100vw;
+
+  button {
+    all: unset;
+    cursor: pointer;
+    @include headOptFlex();
+  }
+
+  div {
+    @include headOptFlex();
+    width: 25%;
+    max-width: pxToRem(300px);
+    user-select: none;
+  }
+
+  h1 {
+    font-size: pxToRem(23px);
+    font-weight: 400;
+    text-align: center;
+    margin-right: pxToRem(8px);
+  }
+
+  h4 {
+    padding-bottom: pxToRem(1px);
+    font-size: pxToRem(16px);
+  }
+}

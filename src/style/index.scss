@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500&display=swap');
+
+@import 'partials/reset', 'partials/variables', 'partials/functions',
+  'partials/basic-settings', 'partials/mixins', 'partials/header';
+
+section {
+  background-color: $clr-900;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-weight: 300;
+  position: relative;
+}
+
+.container {
+  @include flexCenter();
+  height: 100%;
+
+  .home-content {
+    display: flex;
+    width: pxToRem(500px);
+    color: $clr-100;
+
+    .option {
+      flex: 1;
+      @include flexCenter();
+    }
+
+    a {
+      all: unset;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+
+      &:hover {
+        .img-container {
+          border: 1px $clr-100 solid;
+        }
+      }
+    }
+
+    .border {
+      height: pxToRem(250px);
+      width: pxToRem(1px);
+      background-color: $clr-100;
+    }
+
+    .img-container {
+      @include flexCenter();
+      width: pxToRem(110px);
+      height: pxToRem(110px);
+      border-radius: 50%;
+    }
+
+    .img-placeholder {
+      width: 55px;
+      height: 65px;
+      border: 1px $clr-100 solid;
+    }
+
+    h4 {
+      margin-top: pxToRem(15px);
+      font-size: pxToRem(16px);
+      text-align: center;
+    }
+  }
+}
