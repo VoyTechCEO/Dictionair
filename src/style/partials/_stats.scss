@@ -1,0 +1,63 @@
+// STATS
+
+.stats {
+  position: fixed;
+  right: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  color: $clr-100;
+  user-select: none;
+  transform: translate(pxToRem(300px));
+  opacity: 0;
+  transition: 0.2s;
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: pxToRem(350px);
+    padding-right: pxToRem(60px);
+
+    .stat {
+      display: flex;
+      justify-content: space-between;
+      width: pxToRem(230px);
+    }
+
+    h4 {
+      font-size: pxToRem(16px);
+      display: flex;
+      align-items: flex-end;
+
+      &:last-of-type {
+        font-size: pxToRem(23px);
+        font-weight: 400;
+      }
+    }
+
+    button {
+      all: unset;
+      cursor: pointer;
+      font-size: pxToRem(19px);
+      @include setBorder();
+      text-align: center;
+      padding: pxToRem(15px) 0;
+      color: $clr-100;
+      background-color: $clr-900;
+      transition: background-color 0.2s, color 0.2s;
+
+      &:hover {
+        background-color: $clr-100;
+        color: $clr-900;
+        transition: 0.2s;
+      }
+    }
+  }
+}
+
+.show-stats {
+  transform: translate(0);
+  opacity: 1;
+  transition: 0.2s;
+}

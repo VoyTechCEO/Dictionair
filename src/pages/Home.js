@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from '../components/Header';
+import Stats from '../components/Stats';
 
 const Home = () => {
   return (
@@ -26,23 +27,7 @@ const Home = () => {
           </div>
         </article>
       </div>
-      <div className='stats show-stats'>
-        <div className='content'>
-          <div className='stat'>
-            <h4>Zapamiętane słówka</h4>
-            <h4>173</h4>
-          </div>
-          <div className='stat'>
-            <h4>Problematyczne słówka</h4>
-            <h4>28</h4>
-          </div>
-          <div className='stat'>
-            <h4>Oczekujące słówka</h4>
-            <h4>119</h4>
-          </div>
-          <button>Wyczyść statystyki</button>
-        </div>
-      </div>
+      <Stats />
     </section>
   );
 };

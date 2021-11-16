@@ -1,9 +1,10 @@
 import React from 'react';
+import BackArrow from './BackArrow';
 
-const Header = () => {
+const Header = ({ isBackArrow }) => {
   return (
     <header>
-      <div></div>
+      <div>{isBackArrow && <BackArrow />}</div>
       <div>
         <h1>Dictionair</h1>
         <h4>by VoyTech</h4>

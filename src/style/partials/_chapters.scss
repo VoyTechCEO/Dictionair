@@ -1,0 +1,46 @@
+// CHAPTERS
+
+.container {
+  .chapters-content {
+    display: flex;
+    flex-direction: column;
+    height: pxToRem(450px);
+    color: $clr-100;
+
+    h1 {
+      font-size: pxToRem(23px);
+      font-weight: 400;
+      text-align: center;
+    }
+
+    ul {
+      height: 100%;
+      margin-top: pxToRem(30px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      li {
+        text-align: center;
+      }
+
+      button {
+        all: unset;
+        cursor: pointer;
+        font-size: pxToRem(19px);
+        padding: pxToRem(20px) 0;
+        width: pxToRem(300px);
+        @include setBorder();
+        color: $clr-100;
+        background-color: $clr-900;
+        transition: background-color 0.2s, color 0.2s;
+
+        &:hover {
+          background-color: $clr-100;
+          color: $clr-900;
+          transition: 0.2s;
+        }
+      }
+    }
+  }
+}
