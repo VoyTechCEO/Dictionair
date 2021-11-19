@@ -2,7 +2,7 @@
 
 @import 'partials/reset', 'partials/variables', 'partials/functions',
   'partials/basic-settings', 'partials/mixins', 'partials/header',
-  'partials/home', 'partials/stats', 'partials/chapters';
+  'partials/home', 'partials/stats', 'partials/chapters', 'partials/exam';
 
 section {
   background-color: $clr-900;
@@ -11,4 +11,9 @@ section {
   flex-direction: column;
   font-weight: 300;
   position: relative;
+
+  &.exam {
+    background-color: $clr-100;
+    color: $clr-900;
+  }
 }

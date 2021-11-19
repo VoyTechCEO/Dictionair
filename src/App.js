@@ -5,7 +5,7 @@ import Exam from './pages/Exam';
 import Dictionary from './pages/Dictionary';
 
 function App() {
-  return <Chapters />;
+  return <Exam />;
 }
 
 export default App;

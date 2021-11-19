@@ -12,7 +12,7 @@
   align-items: center;
 }
 
-@mixin setBorder() {
-  border: 1px $clr-100 solid;
+@mixin setBorder($color: $clr-100) {
+  border: 1px $color solid;
   border-radius: 4px;
 }

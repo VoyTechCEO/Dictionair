@@ -1,0 +1,121 @@
+// EXAM
+
+.container {
+  .exam-content {
+    @include setBorder($clr-900);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding: pxToRem(70px) pxToRem(50px) pxToRem(40px) pxToRem(50px);
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.25);
+
+    .head {
+      position: absolute;
+      top: pxToRem(-25px);
+      background-color: $clr-900;
+      color: $clr-100;
+      font-size: pxToRem(23px);
+      @include setBorder($clr-900);
+      padding: pxToRem(12px) pxToRem(40px);
+
+      &.wrong {
+        background-color: $clr-red;
+        @include setBorder($clr-red);
+      }
+    }
+
+    .exam-num {
+      position: absolute;
+      top: pxToRem(-19px);
+      right: pxToRem(40px);
+      background-color: $clr-100;
+      padding: pxToRem(8px);
+      font-size: pxToRem(20px);
+      font-weight: 400;
+    }
+
+    .input-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: $clr-900;
+      font-weight: 400;
+      padding: pxToRem(20px);
+      font-size: pxToRem(20px);
+      position: relative;
+
+      label {
+        font-weight: 600;
+        position: absolute;
+        user-select: none;
+      }
+
+      input {
+        all: unset;
+        text-align: center;
+        width: pxToRem(300px);
+        padding: 0 pxToRem(50px);
+      }
+
+      &:last-of-type {
+        background-color: $clr-900;
+        color: $clr-100;
+        border-radius: 4px;
+        margin-top: pxToRem(40px);
+
+        label {
+          font-weight: 400;
+        }
+
+        &.try-again {
+          background-color: $clr-red;
+        }
+
+        &.wrong {
+          background-color: $clr-100;
+          color: $clr-900;
+          margin-top: pxToRem(20px);
+
+          label {
+            font-weight: 500;
+          }
+
+          input {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+
+    p.try-again {
+      font-size: pxToRem(15px);
+      color: $clr-red;
+      font-weight: 400;
+      text-align: center;
+      margin-top: pxToRem(20px);
+    }
+
+    .wrong-answer {
+      margin-top: pxToRem(20px);
+      user-select: none;
+
+      p {
+        color: $clr-red;
+        text-decoration: line-through;
+        font-size: pxToRem(20px);
+        font-weight: 400;
+      }
+    }
+
+    button {
+      all: unset;
+      cursor: pointer;
+      color: $clr-900;
+      font-size: pxToRem(20px);
+      font-weight: 600;
+      padding: pxToRem(10px) pxToRem(25px);
+      margin-top: pxToRem(40px);
+    }
+  }
+}

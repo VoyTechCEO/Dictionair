@@ -761,6 +761,147 @@ header h4 {
   transition: 0.2s;
 }
 
+.container .exam-content {
+  border: 1px #352940 solid;
+  border-radius: 4px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  padding: 4.375rem 3.125rem 2.5rem 3.125rem;
+  -webkit-box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.25);
+          box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.25);
+}
+
+.container .exam-content .head {
+  position: absolute;
+  top: -1.5625rem;
+  background-color: #352940;
+  color: #ffffff;
+  font-size: 1.4375rem;
+  border: 1px #352940 solid;
+  border-radius: 4px;
+  padding: 0.75rem 2.5rem;
+}
+
+.container .exam-content .head.wrong {
+  background-color: #ff2e2e;
+  border: 1px #ff2e2e solid;
+  border-radius: 4px;
+}
+
+.container .exam-content .exam-num {
+  position: absolute;
+  top: -1.1875rem;
+  right: 2.5rem;
+  background-color: #ffffff;
+  padding: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+.container .exam-content .input-line {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #352940;
+  font-weight: 400;
+  padding: 1.25rem;
+  font-size: 1.25rem;
+  position: relative;
+}
+
+.container .exam-content .input-line label {
+  font-weight: 600;
+  position: absolute;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.container .exam-content .input-line input {
+  all: unset;
+  text-align: center;
+  width: 18.75rem;
+  padding: 0 3.125rem;
+}
+
+.container .exam-content .input-line:last-of-type {
+  background-color: #352940;
+  color: #ffffff;
+  border-radius: 4px;
+  margin-top: 2.5rem;
+}
+
+.container .exam-content .input-line:last-of-type label {
+  font-weight: 400;
+}
+
+.container .exam-content .input-line:last-of-type.try-again {
+  background-color: #ff2e2e;
+}
+
+.container .exam-content .input-line:last-of-type.wrong {
+  background-color: #ffffff;
+  color: #352940;
+  margin-top: 1.25rem;
+}
+
+.container .exam-content .input-line:last-of-type.wrong label {
+  font-weight: 500;
+}
+
+.container .exam-content .input-line:last-of-type.wrong input {
+  text-decoration: underline;
+}
+
+.container .exam-content p.try-again {
+  font-size: 0.9375rem;
+  color: #ff2e2e;
+  font-weight: 400;
+  text-align: center;
+  margin-top: 1.25rem;
+}
+
+.container .exam-content .wrong-answer {
+  margin-top: 1.25rem;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.container .exam-content .wrong-answer p {
+  color: #ff2e2e;
+  text-decoration: line-through;
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+.container .exam-content button {
+  all: unset;
+  cursor: pointer;
+  color: #352940;
+  font-size: 1.25rem;
+  font-weight: 600;
+  padding: 0.625rem 1.5625rem;
+  margin-top: 2.5rem;
+}
+
 section {
   background-color: #352940;
   height: 100vh;
@@ -773,5 +914,10 @@ section {
           flex-direction: column;
   font-weight: 300;
   position: relative;
+}
+
+section.exam {
+  background-color: #ffffff;
+  color: #352940;
 }
 /*# sourceMappingURL=index.css.map */
