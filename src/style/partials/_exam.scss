@@ -117,5 +117,9 @@
       padding: pxToRem(10px) pxToRem(25px);
       margin-top: pxToRem(40px);
     }
+
+    svg {
+      fill: $clr-900;
+    }
   }
 }

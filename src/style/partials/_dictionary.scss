@@ -1,0 +1,39 @@
+// DICTIONARY
+
+.dictionary-container {
+  display: flex;
+  justify-content: center;
+
+  .chapters {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 50%;
+    color: $clr-100;
+    margin-top: pxToRem(100px);
+
+    .chapter {
+      width: 34%;
+      display: flex;
+      flex-direction: column;
+      margin-top: pxToRem(100px);
+
+      h1 {
+        font-size: pxToRem(23px);
+        font-weight: 400;
+        margin-bottom: pxToRem(50px);
+      }
+
+      ul {
+        display: flex;
+        flex-direction: column;
+
+        li {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: pxToRem(20px);
+        }
+      }
+    }
+  }
+}

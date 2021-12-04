@@ -477,9 +477,13 @@ header {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 2.5rem 0;
-  position: absolute;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: fixed;
+  background-color: #352940;
   width: 100vw;
+  height: 6.25rem;
   z-index: 9;
 }
 
@@ -495,6 +499,14 @@ header button {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header button svg {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
 }
 
 header div {
@@ -515,16 +527,66 @@ header div {
           user-select: none;
 }
 
+header div:first-of-type {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  padding-left: 3%;
+}
+
+header div:nth-of-type(2) {
+  width: 30%;
+  max-width: none;
+}
+
 header h1 {
   font-size: 1.4375rem;
   font-weight: 400;
   text-align: center;
-  margin-right: 0.5rem;
+  margin-right: 1.25rem;
 }
 
 header h4 {
   padding-bottom: 0.0625rem;
   font-size: 1rem;
+}
+
+header input {
+  all: unset;
+  border: 1px #ffffff solid;
+  border-radius: 4px;
+  padding: 0.9375rem 1.25rem;
+  width: 100%;
+}
+
+header ::-webkit-input-placeholder {
+  color: #ffffff;
+  font-style: italic;
+}
+
+header :-ms-input-placeholder {
+  color: #ffffff;
+  font-style: italic;
+}
+
+header ::-ms-input-placeholder {
+  color: #ffffff;
+  font-style: italic;
+}
+
+header ::placeholder {
+  color: #ffffff;
+  font-style: italic;
+}
+
+header a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+header svg {
+  fill: #ffffff;
 }
 
 .container {
@@ -902,6 +964,71 @@ header h4 {
   margin-top: 2.5rem;
 }
 
+.container .exam-content svg {
+  fill: #352940;
+}
+
+.dictionary-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.dictionary-container .chapters {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 50%;
+  color: #ffffff;
+  margin-top: 6.25rem;
+}
+
+.dictionary-container .chapters .chapter {
+  width: 34%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 6.25rem;
+}
+
+.dictionary-container .chapters .chapter h1 {
+  font-size: 1.4375rem;
+  font-weight: 400;
+  margin-bottom: 3.125rem;
+}
+
+.dictionary-container .chapters .chapter ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.dictionary-container .chapters .chapter ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
 section {
   background-color: #352940;
   height: 100vh;
@@ -914,10 +1041,15 @@ section {
           flex-direction: column;
   font-weight: 300;
   position: relative;
+  overflow-x: hidden;
 }
 
 section.exam {
   background-color: #ffffff;
   color: #352940;
+}
+
+section.dictionary {
+  height: auto;
 }
 /*# sourceMappingURL=index.css.map */
