@@ -1,4 +1,5 @@
 import React from 'react';
+import ExamCorrect from '../components/ExamCorrect';
 import ExamLoading from '../components/ExamLoading';
 import ExamTranslate from '../components/ExamTranslate';
 import ExamTranslateAgain from '../components/ExamTranslateAgain';

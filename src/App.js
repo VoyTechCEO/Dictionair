@@ -41,7 +41,7 @@ function App() {
     getWords(db);
   }, []);
 
-  return <Dictionary />;
+  return <Exam />;
 }
 
 export default App;

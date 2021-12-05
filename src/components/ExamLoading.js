@@ -6,8 +6,8 @@ const ExamLoading = () => {
       <h1 className='head'>PRZETŁUMACZ</h1>
       <h4 className='exam-num'>1 z 20</h4>
       <svg
-        width='150'
-        height='150'
+        width='125'
+        height='125'
         version='1.1'
         viewBox='0 0 52.832 52.832'
         xmlns='http://www.w3.org/2000/svg'
