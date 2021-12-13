@@ -44,7 +44,7 @@
       align-items: center;
       color: $clr-900;
       font-weight: 400;
-      padding: pxToRem(20px);
+      // padding: 0 pxToRem(20px);
       font-size: pxToRem(20px);
       position: relative;
 
@@ -52,13 +52,14 @@
         font-weight: 600;
         position: absolute;
         user-select: none;
+        margin-left: pxToRem(20px);
       }
 
       input {
         all: unset;
         text-align: center;
         width: pxToRem(300px);
-        padding: 0 pxToRem(50px);
+        padding: pxToRem(20px) pxToRem(70px);
       }
 
       &:last-of-type {
@@ -120,12 +121,28 @@
       color: $clr-900;
       font-size: pxToRem(20px);
       font-weight: 600;
-      padding: pxToRem(10px) pxToRem(25px);
-      margin-top: pxToRem(40px);
+      padding: pxToRem(20px) pxToRem(25px);
+      margin-top: pxToRem(30px);
     }
 
     svg {
       fill: $clr-900;
     }
+
+    .spinner {
+      animation: spinner;
+      animation-duration: 600ms;
+      animation-iteration-count: infinite;
+    }
+  }
+}
+
+/* ====== 
+keyframes
+====== */
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
   }
 }

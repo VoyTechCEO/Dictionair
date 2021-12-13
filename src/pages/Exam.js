@@ -10,7 +10,7 @@ const Exam = () => {
     <section className='exam'>
       <div className='container'>
         <div className='exam-content'>
-          <ExamLoading />
+          <ExamCorrect />
         </div>
       </div>
     </section>

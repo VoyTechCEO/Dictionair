@@ -6,6 +6,7 @@ const ExamLoading = () => {
       <h1 className='head'>PRZETŁUMACZ</h1>
       <h4 className='exam-num'>1 z 20</h4>
       <svg
+        className='spinner'
         width='125'
         height='125'
         version='1.1'
