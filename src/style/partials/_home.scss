@@ -46,6 +46,10 @@
       border: 1px $clr-100 solid;
     }
 
+    svg {
+      fill: $clr-100;
+    }
+
     h4 {
       margin-top: pxToRem(15px);
       font-size: pxToRem(16px);

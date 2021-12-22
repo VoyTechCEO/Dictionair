@@ -18,7 +18,7 @@ function App() {
     console.log(words);
   }
 
-  return <Exam />;
+  return <Home />;
 }
 
 export default App;

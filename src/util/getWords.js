@@ -7,8 +7,11 @@ import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
+require(`dotenv`).config();
+
 const firebaseConfig = {
-  apiKey: 'AIzaSyACLR3t0bsFiQ3hlQPUfJop4rkXB6yiWDM',
+  apiKey: process.env.REACT_APP_API_KEY,
   authDomain: 'dictionair-ebfbc.firebaseapp.com',
   projectId: 'dictionair-ebfbc',
   storageBucket: 'dictionair-ebfbc.appspot.com',

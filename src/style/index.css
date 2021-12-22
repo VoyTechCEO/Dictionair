@@ -668,6 +668,10 @@ header svg {
   border: 1px #ffffff solid;
 }
 
+.container .home-content svg {
+  fill: #ffffff;
+}
+
 .container .home-content h4 {
   margin-top: 0.9375rem;
   font-size: 1rem;
