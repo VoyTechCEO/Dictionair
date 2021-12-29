@@ -1,8 +1,15 @@
 import React from 'react';
 import Header from '../components/Header';
 import Stats from '../components/Stats';
+import { useRecoilState } from 'recoil';
+import { wordsState, loadingExamState } from '../recoil';
+
+import { Link } from 'react-router-dom';
 
 const Chapters = () => {
+  const [words, setWords] = useRecoilState(wordsState);
+  const [loadingExam, setLoadingExam] = useRecoilState(loadingExamState);
+
   return (
     <section>
       <Header isBackArrow={true} />
@@ -10,21 +17,24 @@ const Chapters = () => {
         <div className='chapters-content'>
           <h1>Wybierz rozdział</h1>
           <ul>
-            <li>
-              <button>Rozdział 1</button>
-            </li>
-            <li>
-              <button>Rozdział 2</button>
-            </li>
-            <li>
-              <button>Rozdział 3</button>
-            </li>
-            <li>
-              <button>Rozdział 4</button>
-            </li>
-            <li>
-              <button>Cały zakres</button>
-            </li>
+            {words[0].chapters.map((chapter, index) => {
+              let name = chapter.name;
+              name[0].toUpperCase();
+
+              return (
+                <Link
+                  key={`chapter${index}`}
+                  to={`/exam/${name}`}
+                  onClick={() => {
+                    setLoadingExam(true);
+                  }}
+                >
+                  {name}
+                </Link>
+              );
+            })}
+            {/* map this list */}
+            <Link to='/exam'>cały zakres</Link>
           </ul>
         </div>
       </div>

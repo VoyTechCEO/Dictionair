@@ -3,6 +3,9 @@ import Home from './pages/Home';
 import Chapters from './pages/Chapters';
 import Exam from './pages/Exam';
 import Dictionary from './pages/Dictionary';
+
+import { Routes, Route } from 'react-router-dom';
+
 import { loadingState, wordsState } from './recoil';
 import { useRecoilState } from 'recoil';
 import { useEffect } from 'react/cjs/react.development';
@@ -14,11 +17,23 @@ function App() {
   useEffect(() => {
     getWords(setWords, setLoading);
   }, []);
-  if (!loading) {
-    console.log(words);
+
+  if (loading) {
+    return <h1>Loading</h1>;
   }
 
-  return <Home />;
+  console.log(words);
+
+  return (
+    <Routes>
+      <Route exact path='/' element={<Home />} />
+      <Route path='/chapters' element={<Chapters />} />
+      <Route exact path='/exam/:chapter' element={<Exam />} />
+      <Route path='/exam/:chapter/:status' element={<Exam />} />
+      <Route path='/dictionary' element={<Dictionary />} />
+      <Route path='*' element={<p>error</p>} />
+    </Routes>
+  );
 }
 
 export default App;

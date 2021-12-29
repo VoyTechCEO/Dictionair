@@ -16,4 +16,14 @@ const wordsState = atom({
   default: [],
 });
 
-export { loadingState, wordsState };
+const currentWordsExamState = atom({
+  key: 'currentWordsExamState',
+  default: [],
+});
+
+const loadingExamState = atom({
+  key: 'loadingExamState',
+  default: false,
+});
+
+export { loadingState, wordsState, loadingExamState };

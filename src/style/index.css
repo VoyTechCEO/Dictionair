@@ -509,6 +509,10 @@ header button svg {
           transform: rotate(180deg);
 }
 
+header button h1 {
+  margin-right: 1.25rem;
+}
+
 header div {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -543,7 +547,7 @@ header h1 {
   font-size: 1.4375rem;
   font-weight: 400;
   text-align: center;
-  margin-right: 1.25rem;
+  margin-right: 0.625rem;
 }
 
 header h4 {
@@ -806,9 +810,10 @@ header svg {
   text-align: center;
 }
 
-.container .chapters-content ul button {
+.container .chapters-content ul a {
   all: unset;
   cursor: pointer;
+  text-align: center;
   font-size: 1.1875rem;
   padding: 1.25rem 0;
   width: 18.75rem;
@@ -820,7 +825,11 @@ header svg {
   transition: background-color 0.2s, color 0.2s;
 }
 
-.container .chapters-content ul button:hover {
+.container .chapters-content ul a::first-letter {
+  text-transform: uppercase;
+}
+
+.container .chapters-content ul a:hover {
   background-color: #ffffff;
   color: #352940;
   -webkit-transition: 0.2s;

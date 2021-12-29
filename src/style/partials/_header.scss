@@ -20,6 +20,10 @@ header {
     svg {
       transform: rotate(180deg);
     }
+
+    h1 {
+      margin-right: pxToRem(20px);
+    }
   }
 
   div {
@@ -43,7 +47,7 @@ header {
     font-size: pxToRem(23px);
     font-weight: 400;
     text-align: center;
-    margin-right: pxToRem(20px);
+    margin-right: pxToRem(10px);
   }
 
   h4 {

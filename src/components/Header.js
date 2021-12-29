@@ -30,7 +30,7 @@ const Header = ({ isBackArrow, isSearchBar }) => {
             <g transform='translate(-60.738 -80.501)'>
               <path
                 d='m88.053 133.42h-.86089l-26.454-26.458 26.454-26.458h1.7218v1.7177l-24.736 24.741 24.736 24.741v1.7177z'
-                stroke-width='.26458'
+                strokeWidth='.26458'
               />
             </g>
           </svg>
