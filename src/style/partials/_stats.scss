@@ -41,8 +41,10 @@
       cursor: pointer;
       font-size: pxToRem(19px);
       @include setBorder();
-      text-align: center;
-      padding: pxToRem(15px) 0;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: pxToRem(15px) pxToRem(10px);
       color: $clr-100;
       background-color: $clr-900;
       transition: background-color 0.2s, color 0.2s;
@@ -50,7 +52,16 @@
       &:hover {
         background-color: $clr-100;
         color: $clr-900;
+
+        svg {
+          fill: $clr-900;
+        }
+
         transition: 0.2s;
+      }
+
+      svg {
+        fill: $clr-100;
       }
     }
   }

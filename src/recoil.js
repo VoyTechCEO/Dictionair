@@ -23,7 +23,7 @@ const currentWordsExamState = atom({
 
 const loadingExamState = atom({
   key: 'loadingExamState',
-  default: false,
+  default: true,
 });
 
 export { loadingState, wordsState, loadingExamState };

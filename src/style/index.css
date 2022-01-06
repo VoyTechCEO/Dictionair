@@ -666,12 +666,6 @@ header svg {
   border-radius: 50%;
 }
 
-.container .home-content .img-placeholder {
-  width: 55px;
-  height: 65px;
-  border: 1px #ffffff solid;
-}
-
 .container .home-content svg {
   fill: #ffffff;
 }
@@ -750,8 +744,15 @@ header svg {
   font-size: 1.1875rem;
   border: 1px #ffffff solid;
   border-radius: 4px;
-  text-align: center;
-  padding: 0.9375rem 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0.9375rem 0.625rem;
   color: #ffffff;
   background-color: #352940;
   -webkit-transition: background-color 0.2s, color 0.2s;
@@ -763,6 +764,14 @@ header svg {
   color: #352940;
   -webkit-transition: 0.2s;
   transition: 0.2s;
+}
+
+.stats .content button:hover svg {
+  fill: #352940;
+}
+
+.stats .content button svg {
+  fill: #ffffff;
 }
 
 .show-stats {
