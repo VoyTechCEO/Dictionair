@@ -1,10 +1,10 @@
-const getRandomExam = (chapterWords, setLoadingExam) => {
+const getRandomExam = (chapterWords) => {
   let randomNums = [];
   for (let i = 0; i < 20; i++) {
     let number = Math.floor(Math.random() * chapterWords.length);
 
     while (
-      randomNums.find((num) => {
+      randomNums.some((num) => {
         return number === num;
       })
     ) {
@@ -22,7 +22,7 @@ const getRandomExam = (chapterWords, setLoadingExam) => {
     return passedWordNum === index;
   });
   console.log(examWords);
-  setLoadingExam(false);
+  localStorage.setItem(`examWords`, JSON.stringify(examWords));
 };
 
 export default getRandomExam;

@@ -1,10 +1,24 @@
 import React from 'react';
+import { useEffect } from 'react/cjs/react.development';
+import { useRecoilState } from 'recoil';
+import { currentWordNumberState } from '../recoil';
 
-const ExamCorrect = () => {
+const ExamCorrect = ({ setExamStatus }) => {
+  const [currentWordNumber, setCurrentWordNumber] = useRecoilState(
+    currentWordNumberState
+  );
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setCurrentWordNumber(currentWordNumber + 1);
+      setExamStatus(`translate`);
+    }, 2000);
+  }, []);
+
   return (
     <>
       <h1 className='head'>PRZETŁUMACZ</h1>
-      <h4 className='exam-num'>1 z 20</h4>
+      <h4 className='exam-num'>{currentWordNumber} z 20</h4>
       <svg
         width='125'
         height='125'

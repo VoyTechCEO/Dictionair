@@ -7,7 +7,7 @@ import ExamTranslateAgain from '../components/ExamTranslateAgain';
 import ExamWrong from '../components/ExamWrong';
 
 import { useRecoilState } from 'recoil';
-import { wordsState, loadingExamState } from '../recoil';
+import { wordsState, loadingExamState, examStatusState } from '../recoil';
 import getRandomExam from '../util/getRandomExam';
 
 import { Link, useParams } from 'react-router-dom';
@@ -15,6 +15,7 @@ import { Link, useParams } from 'react-router-dom';
 const Exam = () => {
   const { chapter } = useParams();
   const [loadingExam, setLoadingExam] = useRecoilState(loadingExamState);
+  const [examStatus, setExamStatus] = useRecoilState(examStatusState);
   const [words, setWords] = useRecoilState(wordsState);
   const chapterNum = words[0].chapters.findIndex((item) => {
     return item.name === chapter;
@@ -22,18 +23,29 @@ const Exam = () => {
   const chapterWords = words[0].chapters[chapterNum].words;
 
   useEffect(() => {
-    getRandomExam(chapterWords, setLoadingExam);
-    console.log(loadingExam);
+    if (!localStorage.getItem(`examWords`)) {
+      getRandomExam(chapterWords, setLoadingExam);
+    }
+    setLoadingExam(false);
   }, []);
 
-  console.log(loadingExam);
+  const examWords = JSON.parse(localStorage.getItem(`examWords`));
+  console.log(examWords);
 
   return (
     <section className='exam'>
       <div className='container'>
         <div className='exam-content'>
           {loadingExam && <ExamLoading />}
-          {!loadingExam && <ExamTranslate />}
+          {!loadingExam && examStatus === `translate` && (
+            <ExamTranslate
+              setExamStatus={setExamStatus}
+              examWords={examWords}
+            />
+          )}
+          {!loadingExam && examStatus === `correct` && (
+            <ExamCorrect setExamStatus={setExamStatus} />
+          )}
         </div>
       </div>
     </section>

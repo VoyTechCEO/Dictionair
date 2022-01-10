@@ -4,7 +4,7 @@ import Chapters from './pages/Chapters';
 import Exam from './pages/Exam';
 import Dictionary from './pages/Dictionary';
 
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
 import { loadingState, wordsState } from './recoil';
 import { useRecoilState } from 'recoil';
@@ -29,9 +29,8 @@ function App() {
       <Route exact path='/' element={<Home />} />
       <Route path='/chapters' element={<Chapters />} />
       <Route exact path='/exam/:chapter' element={<Exam />} />
-      <Route path='/exam/:chapter/:status' element={<Exam />} />
       <Route path='/dictionary' element={<Dictionary />} />
-      <Route path='*' element={<p>error</p>} />
+      <Route path='*' element={<Navigate to='/' />} />
     </Routes>
   );
 }

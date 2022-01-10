@@ -1,4 +1,5 @@
 import React from 'react';
+import { useEffect } from 'react/cjs/react.development';
 import Header from '../components/Header';
 import Stats from '../components/Stats';
 import { useRecoilState } from 'recoil';
@@ -9,6 +10,10 @@ import { Link } from 'react-router-dom';
 const Chapters = () => {
   const [words, setWords] = useRecoilState(wordsState);
   const [loadingExam, setLoadingExam] = useRecoilState(loadingExamState);
+
+  useEffect(() => {
+    setLoadingExam(true);
+  }, []);
 
   return (
     <section>
