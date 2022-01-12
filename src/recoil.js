@@ -31,10 +31,16 @@ const currentWordNumberState = atom({
   default: 1,
 });
 
+const userAnswerState = atom({
+  key: `userAnswerState`,
+  default: ``,
+});
+
 export {
   loadingState,
   wordsState,
   loadingExamState,
   examStatusState,
   currentWordNumberState,
+  userAnswerState,
 };

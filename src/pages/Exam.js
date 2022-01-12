@@ -7,7 +7,12 @@ import ExamTranslateAgain from '../components/ExamTranslateAgain';
 import ExamWrong from '../components/ExamWrong';
 
 import { useRecoilState } from 'recoil';
-import { wordsState, loadingExamState, examStatusState } from '../recoil';
+import {
+  wordsState,
+  loadingExamState,
+  examStatusState,
+  userAnswerState,
+} from '../recoil';
 import getRandomExam from '../util/getRandomExam';
 
 import { Link, useParams } from 'react-router-dom';
@@ -17,6 +22,7 @@ const Exam = () => {
   const [loadingExam, setLoadingExam] = useRecoilState(loadingExamState);
   const [examStatus, setExamStatus] = useRecoilState(examStatusState);
   const [words, setWords] = useRecoilState(wordsState);
+  const [userAnswer, setUserAnswer] = useRecoilState(userAnswerState);
   const chapterNum = words[0].chapters.findIndex((item) => {
     return item.name === chapter;
   });
@@ -45,6 +51,20 @@ const Exam = () => {
           )}
           {!loadingExam && examStatus === `correct` && (
             <ExamCorrect setExamStatus={setExamStatus} />
+          )}
+          {!loadingExam && examStatus === `translateAgain` && (
+            <ExamTranslateAgain
+              setExamStatus={setExamStatus}
+              examWords={examWords}
+              setUserAnswer={setUserAnswer}
+            />
+          )}
+          {!loadingExam && examStatus === `wrong` && (
+            <ExamWrong
+              setExamStatus={setExamStatus}
+              examWords={examWords}
+              userAnswer={userAnswer}
+            />
           )}
         </div>
       </div>

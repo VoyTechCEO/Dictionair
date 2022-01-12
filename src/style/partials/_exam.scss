@@ -102,12 +102,11 @@
 
     .wrong-answer {
       display: flex;
-      justify-content: space-between;
-      width: pxToRem(100px);
       margin-top: pxToRem(20px);
       user-select: none;
 
       p {
+        margin-left: pxToRem(20px);
         color: $clr-red;
         text-decoration: line-through;
         font-size: pxToRem(20px);

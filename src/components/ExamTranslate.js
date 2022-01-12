@@ -43,6 +43,8 @@ const ExamTranslate = ({ setExamStatus, examWords }) => {
           e.preventDefault();
           if (answer === currentWord.wordENG) {
             setExamStatus(`correct`);
+          } else {
+            setExamStatus(`translateAgain`);
           }
         }}
       >

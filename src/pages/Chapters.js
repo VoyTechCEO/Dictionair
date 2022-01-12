@@ -32,6 +32,9 @@ const Chapters = () => {
                   to={`/exam/${name}`}
                   onClick={() => {
                     setLoadingExam(true);
+                    if (localStorage.getItem(`examWords`)) {
+                      alert(`Ukończ rozpoczęty egzamin.`);
+                    }
                   }}
                 >
                   {name}

@@ -970,10 +970,6 @@ header svg {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  width: 6.25rem;
   margin-top: 1.25rem;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -982,6 +978,7 @@ header svg {
 }
 
 .container .exam-content .wrong-answer p {
+  margin-left: 1.25rem;
   color: #ff2e2e;
   text-decoration: line-through;
   font-size: 1.25rem;

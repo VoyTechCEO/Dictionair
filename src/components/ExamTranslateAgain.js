@@ -1,10 +1,21 @@
 import React from 'react';
+import { useState } from 'react/cjs/react.development';
+import { useRecoilState } from 'recoil';
+import { currentWordNumberState } from '../recoil';
 
-const ExamTranslateAgain = () => {
+const ExamTranslateAgain = ({ setExamStatus, examWords, setUserAnswer }) => {
+  const [currentWordNumber, setCurrentWordNumber] = useRecoilState(
+    currentWordNumberState
+  );
+  const currentWord = examWords.find((word, index) => {
+    return index + 1 === currentWordNumber;
+  });
+  const [answer, setAnswer] = useState(``);
+
   return (
     <>
       <h1 className='head'>PRZETŁUMACZ</h1>
-      <h4 className='exam-num'>1 z 20</h4>
+      <h4 className='exam-num'>{currentWordNumber} z 20</h4>
       <div className='input-line'>
         <label htmlFor='untranslated'>PL</label>
         <input
@@ -12,15 +23,35 @@ const ExamTranslateAgain = () => {
           id='untranslated'
           name='untranslated'
           readOnly
-          value='patyk'
+          value={currentWord.wordPL}
         />
       </div>
       <div className='input-line try-again'>
         <label htmlFor='translation'>ENG</label>
-        <input type='text' id='translation' name='translation' autoFocus />
+        <input
+          type='text'
+          id='translation'
+          name='translation'
+          autoFocus
+          autoComplete='off'
+          value={answer}
+          onChange={(e) => setAnswer(e.target.value)}
+        />
       </div>
       <p className='try-again'>Błędna odpowiedź, spróbuj jeszcze raz.</p>
-      <button>Zatwierdź</button>
+      <button
+        onClick={(e) => {
+          e.preventDefault();
+          if (answer === currentWord.wordENG) {
+            setExamStatus(`correct`);
+          } else {
+            setExamStatus(`wrong`);
+            setUserAnswer(answer);
+          }
+        }}
+      >
+        Zatwierdź
+      </button>
     </>
   );
 };

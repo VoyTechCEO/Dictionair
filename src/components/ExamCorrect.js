@@ -2,15 +2,24 @@ import React from 'react';
 import { useEffect } from 'react/cjs/react.development';
 import { useRecoilState } from 'recoil';
 import { currentWordNumberState } from '../recoil';
+import { useNavigate } from 'react-router-dom';
 
 const ExamCorrect = ({ setExamStatus }) => {
   const [currentWordNumber, setCurrentWordNumber] = useRecoilState(
     currentWordNumberState
   );
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     const timeout = setTimeout(() => {
-      setCurrentWordNumber(currentWordNumber + 1);
+      if (currentWordNumber < 20) {
+        setCurrentWordNumber(currentWordNumber + 1);
+      } else {
+        setCurrentWordNumber(1);
+        localStorage.removeItem(`examWords`);
+        navigate(`/`);
+      }
       setExamStatus(`translate`);
     }, 2000);
   }, []);
