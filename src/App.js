@@ -10,6 +10,7 @@ import { loadingState, wordsState } from './recoil';
 import { useRecoilState } from 'recoil';
 import { useEffect } from 'react/cjs/react.development';
 import getWords from './util/getWords';
+import setWordsStatsList from './util/setWordsStatsList';
 
 function App() {
   const [loading, setLoading] = useRecoilState(loadingState);
@@ -22,6 +23,11 @@ function App() {
     return <h1>Loading</h1>;
   }
 
+  // wpakuj wszystkie słówka to localStorage, dostań się do rozdziałów i przeiteruj przez nie po prostu, dodając słówka z każdego do jednego wielkiego localStorage, potem odnajdujesz wpisane podczas egzaminu poprawne słówko w localStorage i zmieniasz mu wartość statusu na correct czy coś (wcześniej musisz przeiterować wszystkie słówka localStorage i im dodać ten status do objectu)
+
+  if (!localStorage.getItem(`wordsStatsList`)) {
+    setWordsStatsList(words);
+  }
   console.log(words);
 
   return (

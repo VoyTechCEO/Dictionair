@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react/cjs/react.development';
 import { useRecoilState } from 'recoil';
 import { currentWordNumberState } from '../recoil';
+import assignWordStatus from '../util/assignWordStatus';
 
 const ExamTranslate = ({ setExamStatus, examWords }) => {
   const [currentWordNumber, setCurrentWordNumber] = useRecoilState(
@@ -43,6 +44,7 @@ const ExamTranslate = ({ setExamStatus, examWords }) => {
           e.preventDefault();
           if (answer === currentWord.wordENG) {
             setExamStatus(`correct`);
+            assignWordStatus(`correct`, currentWord);
           } else {
             setExamStatus(`translateAgain`);
           }

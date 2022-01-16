@@ -36,6 +36,16 @@ const userAnswerState = atom({
   default: ``,
 });
 
+const statsSwitchState = atom({
+  key: `statsSwitchState`,
+  default: false,
+});
+
+const loadingWordsStatsState = atom({
+  key: `loadingWordsStatsState`,
+  default: false,
+});
+
 export {
   loadingState,
   wordsState,
@@ -43,4 +53,6 @@ export {
   examStatusState,
   currentWordNumberState,
   userAnswerState,
+  statsSwitchState,
+  loadingWordsStatsState,
 };

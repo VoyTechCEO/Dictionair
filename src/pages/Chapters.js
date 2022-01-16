@@ -41,7 +41,6 @@ const Chapters = () => {
                 </Link>
               );
             })}
-            {/* map this list */}
             <Link to='/exam'>cały zakres</Link>
           </ul>
         </div>

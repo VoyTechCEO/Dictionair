@@ -1,22 +1,53 @@
 import React from 'react';
+import { useState } from 'react/cjs/react.development';
+import { useRecoilState } from 'recoil';
+import { statsSwitchState } from '../recoil';
 
 const Stats = () => {
+  const [statsSwitch, setStatsSwitch] = useRecoilState(statsSwitchState);
+  const wordsStatsList = JSON.parse(localStorage.getItem(`wordsStatsList`));
+  const unknownWords = wordsStatsList.filter((wordObject) => {
+    return wordObject.status === ``;
+  });
+  const correctWords = wordsStatsList.filter((wordObject) => {
+    return wordObject.status === `correct`;
+  });
+  const wrongWords = wordsStatsList.filter((wordObject) => {
+    return wordObject.status === `wrong`;
+  });
+  const [newWordsStatsList, setNewWordsStatsList] = useState([
+    ...wordsStatsList,
+  ]);
+
   return (
-    <div className='stats show-stats'>
+    <div className={statsSwitch ? 'stats show-stats' : 'stats'}>
       <div className='content'>
         <div className='stat'>
           <h4>Zapamiętane słówka</h4>
-          <h4>173</h4>
+          <h4>{correctWords.length}</h4>
         </div>
         <div className='stat'>
           <h4>Problematyczne słówka</h4>
-          <h4>28</h4>
+          <h4>{wrongWords.length}</h4>
         </div>
         <div className='stat'>
           <h4>Oczekujące słówka</h4>
-          <h4>119</h4>
+          <h4>{unknownWords.length}</h4>
         </div>
-        <button>
+        <button
+          onClick={() => {
+            setNewWordsStatsList(
+              newWordsStatsList.map((wordObject) => {
+                wordObject.status = ``;
+                return wordObject;
+              })
+            );
+            localStorage.setItem(
+              `wordsStatsList`,
+              JSON.stringify(newWordsStatsList)
+            );
+          }}
+        >
           <svg
             height='20'
             version='1.1'

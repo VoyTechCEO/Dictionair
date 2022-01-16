@@ -1,7 +1,11 @@
 import React from 'react';
 import BackArrow from './BackArrow';
+import { useRecoilState } from 'recoil';
+import { statsSwitchState } from '../recoil';
 
 const Header = ({ isBackArrow, isSearchBar }) => {
+  const [statsSwitch, setStatsSwitch] = useRecoilState(statsSwitchState);
+
   return (
     <header>
       <div>{isBackArrow && <BackArrow />}</div>
@@ -18,7 +22,11 @@ const Header = ({ isBackArrow, isSearchBar }) => {
         )}
       </div>
       <div>
-        <button>
+        <button
+          onClick={() => {
+            setStatsSwitch(!statsSwitch);
+          }}
+        >
           <h1>Statystyki</h1>
           <svg
             width='32'
