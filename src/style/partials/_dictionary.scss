@@ -22,6 +22,10 @@
         font-size: pxToRem(23px);
         font-weight: 400;
         margin-bottom: pxToRem(50px);
+
+        &::first-letter {
+          text-transform: uppercase;
+        }
       }
 
       ul {
@@ -34,6 +38,10 @@
           margin-bottom: pxToRem(20px);
         }
       }
+    }
+
+    .hidden {
+      display: none;
     }
   }
 }

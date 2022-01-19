@@ -15,7 +15,7 @@ import {
 } from '../recoil';
 import getRandomExam from '../util/getRandomExam';
 
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 const Exam = () => {
   const { chapter } = useParams();
@@ -36,7 +36,6 @@ const Exam = () => {
   }, []);
 
   const examWords = JSON.parse(localStorage.getItem(`examWords`));
-  console.log(examWords);
 
   return (
     <section className='exam'>

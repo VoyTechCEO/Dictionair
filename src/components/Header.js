@@ -1,10 +1,11 @@
 import React from 'react';
 import BackArrow from './BackArrow';
 import { useRecoilState } from 'recoil';
-import { statsSwitchState } from '../recoil';
+import { searchTermState, statsSwitchState } from '../recoil';
 
 const Header = ({ isBackArrow, isSearchBar }) => {
   const [statsSwitch, setStatsSwitch] = useRecoilState(statsSwitchState);
+  const [searchTerm, setSearchTerm] = useRecoilState(searchTermState);
 
   return (
     <header>
@@ -12,7 +13,15 @@ const Header = ({ isBackArrow, isSearchBar }) => {
       <div>
         {isSearchBar ? (
           <>
-            <input type='text' placeholder='Wyszukaj słówko' autoFocus />
+            <input
+              type='text'
+              placeholder='Wyszukaj polskie słówko'
+              value={searchTerm}
+              onChange={(e) => {
+                setSearchTerm(e.target.value);
+              }}
+              autoFocus
+            />
           </>
         ) : (
           <>

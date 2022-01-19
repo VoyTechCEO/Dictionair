@@ -1,136 +1,23 @@
 import React from 'react';
+import { useRecoilState } from 'recoil';
+import DictionaryChapter from '../components/DictionaryChapter';
 import Header from '../components/Header';
 import Stats from '../components/Stats';
+import { wordsState } from '../recoil';
 
 const Dictionary = () => {
+  const [words, setWords] = useRecoilState(wordsState);
+
   return (
     <section className='dictionary'>
       <Header isBackArrow={true} isSearchBar={true} />
       <div className='dictionary-container'>
         <ul className='chapters'>
-          <li className='chapter'>
-            <h1>Rozdział 1</h1>
-            <ul>
-              <li>
-                <p>olbrzymi</p>
-                <p>enormous</p>
-              </li>
-              <li>
-                <p>patyk</p>
-                <p>stick</p>
-              </li>
-              <li>
-                <p>zidentyfikować</p>
-                <p>identify</p>
-              </li>
-              <li>
-                <p>olbrzymi</p>
-                <p>enormous</p>
-              </li>
-              <li>
-                <p>patyk</p>
-                <p>stick</p>
-              </li>
-              <li>
-                <p>zidentyfikować</p>
-                <p>identify</p>
-              </li>
-              <li>
-                <p>olbrzymi</p>
-                <p>enormous</p>
-              </li>
-              <li>
-                <p>patyk</p>
-                <p>stick</p>
-              </li>
-              <li>
-                <p>zidentyfikować</p>
-                <p>identify</p>
-              </li>
-            </ul>
-          </li>
-          <li className='chapter'>
-            <h1>Rozdział 1</h1>
-            <ul>
-              <li>
-                <p>olbrzymi</p>
-                <p>enormous</p>
-              </li>
-              <li>
-                <p>patyk</p>
-                <p>stick</p>
-              </li>
-              <li>
-                <p>zidentyfikować</p>
-                <p>identify</p>
-              </li>
-              <li>
-                <p>olbrzymi</p>
-                <p>enormous</p>
-              </li>
-              <li>
-                <p>patyk</p>
-                <p>stick</p>
-              </li>
-              <li>
-                <p>zidentyfikować</p>
-                <p>identify</p>
-              </li>
-              <li>
-                <p>olbrzymi</p>
-                <p>enormous</p>
-              </li>
-              <li>
-                <p>patyk</p>
-                <p>stick</p>
-              </li>
-              <li>
-                <p>zidentyfikować</p>
-                <p>identify</p>
-              </li>
-            </ul>
-          </li>
-          <li className='chapter'>
-            <h1>Rozdział 1</h1>
-            <ul>
-              <li>
-                <p>olbrzymi</p>
-                <p>enormous</p>
-              </li>
-              <li>
-                <p>patyk</p>
-                <p>stick</p>
-              </li>
-              <li>
-                <p>zidentyfikować</p>
-                <p>identify</p>
-              </li>
-              <li>
-                <p>olbrzymi</p>
-                <p>enormous</p>
-              </li>
-              <li>
-                <p>patyk</p>
-                <p>stick</p>
-              </li>
-              <li>
-                <p>zidentyfikować</p>
-                <p>identify</p>
-              </li>
-              <li>
-                <p>olbrzymi</p>
-                <p>enormous</p>
-              </li>
-              <li>
-                <p>patyk</p>
-                <p>stick</p>
-              </li>
-              <li>
-                <p>zidentyfikować</p>
-                <p>identify</p>
-              </li>
-            </ul>
-          </li>
+          {words[0].chapters.map((chapter, index) => {
+            return (
+              <DictionaryChapter key={`chapterKey${index}`} chapter={chapter} />
+            );
+          })}
         </ul>
       </div>
       <Stats />

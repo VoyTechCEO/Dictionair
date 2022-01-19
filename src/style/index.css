@@ -458,6 +458,7 @@ html {
 
 body {
   font-family: "roboto";
+  background-color: #352940;
 }
 
 body img {
@@ -1065,6 +1066,10 @@ keyframes
   margin-bottom: 3.125rem;
 }
 
+.dictionary-container .chapters .chapter h1::first-letter {
+  text-transform: uppercase;
+}
+
 .dictionary-container .chapters .chapter ul {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1083,6 +1088,10 @@ keyframes
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin-bottom: 1.25rem;
+}
+
+.dictionary-container .chapters .hidden {
+  display: none;
 }
 
 section {

@@ -46,6 +46,11 @@ const loadingWordsStatsState = atom({
   default: false,
 });
 
+const searchTermState = atom({
+  key: `searchTermState`,
+  default: ``,
+});
+
 export {
   loadingState,
   wordsState,
@@ -55,4 +60,5 @@ export {
   userAnswerState,
   statsSwitchState,
   loadingWordsStatsState,
+  searchTermState,
 };
