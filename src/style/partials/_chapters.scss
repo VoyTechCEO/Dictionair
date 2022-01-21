@@ -4,7 +4,7 @@
   .chapters-content {
     display: flex;
     flex-direction: column;
-    height: pxToRem(450px);
+    // height: pxToRem(450px);
     color: $clr-100;
 
     h1 {
@@ -18,16 +18,13 @@
       margin-top: pxToRem(30px);
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-
-      li {
-        text-align: center;
-      }
+      // justify-content: space-between;
 
       a {
         all: unset;
         cursor: pointer;
-        text-align: center; // added from li above
+        text-align: center;
+        margin-top: pxToRem(20px);
         font-size: pxToRem(19px);
         padding: pxToRem(20px) 0;
         width: pxToRem(300px);
@@ -35,6 +32,10 @@
         color: $clr-100;
         background-color: $clr-900;
         transition: background-color 0.2s, color 0.2s;
+
+        &:first-of-type {
+          margin-top: 0;
+        }
 
         &::first-letter {
           text-transform: uppercase;

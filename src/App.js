@@ -1,5 +1,6 @@
 import React from 'react';
 import Home from './pages/Home';
+import Loading from './pages/Loading';
 import Chapters from './pages/Chapters';
 import Exam from './pages/Exam';
 import Dictionary from './pages/Dictionary';
@@ -20,7 +21,7 @@ function App() {
   }, []);
 
   if (loading) {
-    return <h1>Loading</h1>;
+    return <Loading />;
   }
 
   if (!localStorage.getItem(`wordsStatsList`)) {

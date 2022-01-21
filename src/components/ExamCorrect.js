@@ -22,6 +22,10 @@ const ExamCorrect = ({ setExamStatus }) => {
       }
       setExamStatus(`translate`);
     }, 2000);
+
+    return () => {
+      clearTimeout(timeout);
+    };
   }, []);
 
   return (

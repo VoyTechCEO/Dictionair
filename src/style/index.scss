@@ -3,7 +3,7 @@
 @import 'partials/reset', 'partials/variables', 'partials/functions',
   'partials/basic-settings', 'partials/mixins', 'partials/header',
   'partials/home', 'partials/stats', 'partials/chapters', 'partials/exam',
-  'partials/dictionary';
+  'partials/dictionary', 'partials/loading';
 
 section {
   background-color: $clr-900;

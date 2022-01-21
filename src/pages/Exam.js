@@ -26,11 +26,18 @@ const Exam = () => {
   const chapterNum = words[0].chapters.findIndex((item) => {
     return item.name === chapter;
   });
-  const chapterWords = words[0].chapters[chapterNum].words;
 
   useEffect(() => {
     if (!localStorage.getItem(`examWords`)) {
-      getRandomExam(chapterWords, setLoadingExam);
+      if (chapter === `allWords`) {
+        getRandomExam(
+          JSON.parse(localStorage.getItem(`wordsStatsList`)),
+          setLoadingExam
+        );
+      } else {
+        const chapterWords = words[0].chapters[chapterNum].words;
+        getRandomExam(chapterWords, setLoadingExam);
+      }
     }
     setLoadingExam(false);
   }, []);

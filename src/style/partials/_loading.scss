@@ -1,0 +1,15 @@
+// LOADING
+
+.container {
+  .loading-content {
+    svg {
+      fill: $clr-100;
+    }
+
+    .spinner {
+      animation: spinner;
+      animation-duration: 600ms;
+      animation-iteration-count: infinite;
+    }
+  }
+}

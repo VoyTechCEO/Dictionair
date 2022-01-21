@@ -41,7 +41,17 @@ const Chapters = () => {
                 </Link>
               );
             })}
-            <Link to='/exam'>cały zakres</Link>
+            <Link
+              to='/exam/allWords'
+              onClick={() => {
+                setLoadingExam(true);
+                if (localStorage.getItem(`examWords`)) {
+                  alert(`Ukończ rozpoczęty egzamin.`);
+                }
+              }}
+            >
+              cały zakres
+            </Link>
           </ul>
         </div>
       </div>

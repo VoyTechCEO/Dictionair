@@ -791,7 +791,6 @@ header svg {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 28.125rem;
   color: #ffffff;
 }
 
@@ -811,19 +810,13 @@ header svg {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-.container .chapters-content ul li {
-  text-align: center;
 }
 
 .container .chapters-content ul a {
   all: unset;
   cursor: pointer;
   text-align: center;
+  margin-top: 1.25rem;
   font-size: 1.1875rem;
   padding: 1.25rem 0;
   width: 18.75rem;
@@ -833,6 +826,10 @@ header svg {
   background-color: #352940;
   -webkit-transition: background-color 0.2s, color 0.2s;
   transition: background-color 0.2s, color 0.2s;
+}
+
+.container .chapters-content ul a:first-of-type {
+  margin-top: 0;
 }
 
 .container .chapters-content ul a::first-letter {
@@ -1092,6 +1089,19 @@ keyframes
 
 .dictionary-container .chapters .hidden {
   display: none;
+}
+
+.container .loading-content svg {
+  fill: #ffffff;
+}
+
+.container .loading-content .spinner {
+  -webkit-animation: spinner;
+          animation: spinner;
+  -webkit-animation-duration: 600ms;
+          animation-duration: 600ms;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
 }
 
 section {
