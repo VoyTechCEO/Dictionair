@@ -41,6 +41,7 @@ const ExamTranslateAgain = ({ setExamStatus, examWords, setUserAnswer }) => {
       </div>
       <p className='try-again'>Błędna odpowiedź, spróbuj jeszcze raz.</p>
       <button
+        type='submit'
         onClick={(e) => {
           e.preventDefault();
           if (answer === currentWord.wordENG) {

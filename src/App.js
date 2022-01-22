@@ -32,7 +32,8 @@ function App() {
   return (
     <Routes>
       <Route exact path='/' element={<Home />} />
-      <Route path='/chapters' element={<Chapters />} />
+      <Route exact path='/chapters' element={<Chapters />} />
+      <Route path='/chapters/:chapter' element={<Chapters />} />
       <Route exact path='/exam/:chapter' element={<Exam />} />
       <Route path='/dictionary' element={<Dictionary />} />
       <Route path='*' element={<Navigate to='/' />} />

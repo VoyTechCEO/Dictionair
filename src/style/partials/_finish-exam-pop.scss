@@ -1,0 +1,78 @@
+// FINISH EXAM POP
+
+.exam-pop-container {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.1);
+  z-index: 9999;
+
+  .exam-pop {
+    @include flexCenter();
+    @include setBorder();
+    position: relative;
+    flex-direction: column;
+    background-color: $clr-100;
+    color: $clr-900;
+    padding: pxToRem(40px);
+    min-width: pxToRem(320px);
+    max-width: pxToRem(400px);
+
+    button {
+      all: unset;
+      cursor: pointer;
+      position: absolute;
+      top: 5%;
+      right: 5%;
+      display: flex;
+      align-items: center;
+    }
+
+    svg {
+      fill: $clr-900;
+    }
+
+    h1 {
+      font-size: pxToRem(23px);
+      font-weight: 400;
+      text-align: center;
+    }
+
+    p {
+      font-size: pxToRem(16px);
+      font-weight: 400;
+      margin-top: pxToRem(75px);
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin-top: pxToRem(75px);
+
+      a {
+        @include setBorder();
+        text-decoration: none;
+        padding: pxToRem(10px) pxToRem(20px);
+        font-size: pxToRem(20px);
+        font-weight: 600;
+
+        &:first-of-type {
+          color: $clr-100;
+          background-color: $clr-900;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+}
+
+@supports (backdrop-filter: blur()) {
+  .exam-pop-container {
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+  }
+}

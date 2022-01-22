@@ -13,7 +13,6 @@ const getRandomExam = (chapterWords) => {
 
     randomNums = [...randomNums, number];
   }
-  console.log(randomNums);
 
   const examWords = chapterWords.filter((word, index) => {
     const passedWordNum = randomNums.find((number) => {

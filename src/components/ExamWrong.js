@@ -41,7 +41,7 @@ const ExamWrong = ({ setExamStatus, examWords, userAnswer }) => {
             fill='#ff2e2e'
           />
         </svg>
-        <p>{userAnswer}</p>
+        {userAnswer !== `` && <p>{userAnswer}</p>}
       </div>
       <div className='input-line wrong'>
         <label htmlFor='translation'>ENG</label>
@@ -54,6 +54,7 @@ const ExamWrong = ({ setExamStatus, examWords, userAnswer }) => {
         />
       </div>
       <button
+        type='submit'
         onClick={(e) => {
           e.preventDefault();
           if (currentWordNumber < 20) {

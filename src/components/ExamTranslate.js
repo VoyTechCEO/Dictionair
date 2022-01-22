@@ -40,6 +40,7 @@ const ExamTranslate = ({ setExamStatus, examWords }) => {
         />
       </div>
       <button
+        type='submit'
         onClick={(e) => {
           e.preventDefault();
           if (answer === currentWord.wordENG) {

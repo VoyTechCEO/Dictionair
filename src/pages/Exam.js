@@ -47,7 +47,7 @@ const Exam = () => {
   return (
     <section className='exam'>
       <div className='container'>
-        <div className='exam-content'>
+        <form className='exam-content'>
           {loadingExam && <ExamLoading />}
           {!loadingExam && examStatus === `translate` && (
             <ExamTranslate
@@ -72,7 +72,7 @@ const Exam = () => {
               userAnswer={userAnswer}
             />
           )}
-        </div>
+        </form>
       </div>
     </section>
   );
