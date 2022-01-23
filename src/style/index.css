@@ -1190,15 +1190,22 @@ keyframes
   border: 1px #ffffff solid;
   border-radius: 4px;
   text-decoration: none;
+  color: #352940;
   padding: 0.625rem 1.25rem;
   font-size: 1.25rem;
   font-weight: 600;
 }
 
-.exam-pop-container .exam-pop .btn-container a:first-of-type {
+.exam-pop-container .exam-pop .btn-container a.clr-bg {
   color: #ffffff;
   background-color: #352940;
   font-weight: 400;
+}
+
+.exam-pop-container .exam-pop .btn-container.after-exam-btn {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 @supports ((-webkit-backdrop-filter: blur()) or (backdrop-filter: blur())) {

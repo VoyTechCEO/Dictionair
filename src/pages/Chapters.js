@@ -70,6 +70,7 @@ const Chapters = () => {
                 setLoadingExam(true);
                 if (localStorage.getItem(`examWords`)) {
                   setExamPop(true);
+                } else {
                   localStorage.setItem(`currentChapter`, `allWords`);
                 }
               }}

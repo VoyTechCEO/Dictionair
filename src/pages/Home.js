@@ -1,13 +1,19 @@
 import React from 'react';
 import Header from '../components/Header';
 import Stats from '../components/Stats';
+import AfterExamPop from '../components/AfterExamPop';
 
 import { Link } from 'react-router-dom';
+import { afterExamPopState } from '../recoil';
+import { useRecoilState } from 'recoil';
 
 const Home = () => {
+  const [afterExamPop, setAfterExamPop] = useRecoilState(afterExamPopState);
+
   return (
     <section>
       <Header />
+      {afterExamPop && <AfterExamPop />}
       <div className='container'>
         <article className='home-content'>
           <div className='option'>

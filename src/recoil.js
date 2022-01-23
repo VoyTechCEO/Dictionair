@@ -51,6 +51,11 @@ const searchTermState = atom({
   default: ``,
 });
 
+const afterExamPopState = atom({
+  key: `afterExamPopState`,
+  default: false,
+});
+
 export {
   loadingState,
   wordsState,
@@ -61,4 +66,5 @@ export {
   statsSwitchState,
   loadingWordsStatsState,
   searchTermState,
+  afterExamPopState,
 };

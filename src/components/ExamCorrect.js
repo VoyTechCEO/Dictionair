@@ -1,13 +1,14 @@
 import React from 'react';
 import { useEffect } from 'react/cjs/react.development';
 import { useRecoilState } from 'recoil';
-import { currentWordNumberState } from '../recoil';
+import { afterExamPopState, currentWordNumberState } from '../recoil';
 import { useNavigate } from 'react-router-dom';
 
 const ExamCorrect = ({ setExamStatus }) => {
   const [currentWordNumber, setCurrentWordNumber] = useRecoilState(
     currentWordNumberState
   );
+  const [afterExamPop, setAfterExamPop] = useRecoilState(afterExamPopState);
 
   const navigate = useNavigate();
 
@@ -19,6 +20,7 @@ const ExamCorrect = ({ setExamStatus }) => {
         setCurrentWordNumber(1);
         localStorage.removeItem(`examWords`);
         navigate(`/`);
+        setAfterExamPop(true);
       }
       setExamStatus(`translate`);
     }, 2000);

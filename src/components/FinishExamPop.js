@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Navigate, useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import {
   currentWordNumberState,
@@ -46,6 +46,7 @@ const FinishExamPop = ({ setExamPop }) => {
         <div className='btn-container'>
           <Link
             to={`/exam/${localStorage.getItem('currentChapter')}`}
+            className='clr-bg'
             onClick={() => {
               setLoadingExam(true);
             }}
@@ -58,6 +59,8 @@ const FinishExamPop = ({ setExamPop }) => {
               setExamStatus(`translate`);
               setLoadingExam(true);
               setCurrentWordNumber(1);
+              localStorage.setItem(`currentChapter`, chapter);
+              console.log(localStorage.getItem(`currentChapter`));
               localStorage.removeItem(`examWords`);
             }}
           >

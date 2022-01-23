@@ -56,15 +56,20 @@
       a {
         @include setBorder();
         text-decoration: none;
+        color: $clr-900;
         padding: pxToRem(10px) pxToRem(20px);
         font-size: pxToRem(20px);
         font-weight: 600;
 
-        &:first-of-type {
+        &.clr-bg {
           color: $clr-100;
           background-color: $clr-900;
           font-weight: 400;
         }
+      }
+
+      &.after-exam-btn {
+        justify-content: center;
       }
     }
   }
