@@ -56,6 +56,11 @@ const afterExamPopState = atom({
   default: false,
 });
 
+const addChapterState = atom({
+  key: `addChapterState`,
+  default: [],
+});
+
 export {
   loadingState,
   wordsState,
@@ -67,4 +72,5 @@ export {
   loadingWordsStatsState,
   searchTermState,
   afterExamPopState,
+  addChapterState,
 };

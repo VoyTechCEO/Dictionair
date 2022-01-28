@@ -42,7 +42,7 @@ const ExamWrong = ({ setExamStatus, examWords, userAnswer }) => {
             fill='#ff2e2e'
           />
         </svg>
-        {userAnswer !== `` && <p>{userAnswer}</p>}
+        {userAnswer.replace(/\s/g, '') !== `` && <p>{userAnswer}</p>}
       </div>
       <div className='input-line wrong'>
         <label htmlFor='translation'>ENG</label>

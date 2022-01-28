@@ -1,10 +1,13 @@
 // CHAPTERS
 
 .container {
+  &.chapters-container {
+    align-items: unset;
+  }
   .chapters-content {
     display: flex;
     flex-direction: column;
-    // height: pxToRem(450px);
+    margin-top: pxToRem(200px);
     color: $clr-100;
 
     h1 {
@@ -18,33 +21,75 @@
       margin-top: pxToRem(30px);
       display: flex;
       flex-direction: column;
-      // justify-content: space-between;
+
+      li {
+        position: relative;
+        display: flex;
+        align-items: center;
+        width: pxToRem(300px);
+        margin-top: pxToRem(20px);
+
+        &:hover button {
+          visibility: visible;
+        }
+
+        &:first-of-type {
+          margin-top: 0;
+        }
+      }
+
+      .delete-container {
+        position: absolute;
+        right: pxToRem(-60px);
+        padding: 0 pxToRem(20px);
+        height: 100%;
+        display: flex;
+        align-items: center;
+      }
+
+      button {
+        all: unset;
+        cursor: pointer;
+        visibility: hidden;
+      }
+
+      svg {
+        fill: $clr-100;
+      }
 
       a {
         all: unset;
         cursor: pointer;
         text-align: center;
-        margin-top: pxToRem(20px);
         font-size: pxToRem(19px);
         padding: pxToRem(20px) 0;
-        width: pxToRem(300px);
+        width: 100%;
         @include setBorder();
         color: $clr-100;
         background-color: $clr-900;
         transition: background-color 0.2s, color 0.2s;
 
-        &:first-of-type {
-          margin-top: 0;
-        }
-
         &::first-letter {
           text-transform: uppercase;
         }
 
-        &:hover {
-          background-color: $clr-100;
-          color: $clr-900;
-          transition: 0.2s;
+        &.chapter-link {
+          &:hover {
+            background-color: $clr-100;
+            color: $clr-900;
+            transition: 0.2s;
+          }
+        }
+
+        &.create-chapter-btn {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border: unset;
+
+          svg {
+            margin-right: pxToRem(20px);
+          }
         }
       }
     }

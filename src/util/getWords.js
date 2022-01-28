@@ -30,7 +30,10 @@ const getWords = async (setWords, setLoading) => {
     const wordsCol = collection(db, 'words');
     const wordsSnapshot = await getDocs(wordsCol);
     const wordsList = wordsSnapshot.docs.map((doc) => doc.data());
-    setWords(wordsList);
+    if (!localStorage.getItem(`storeWords`)) {
+      localStorage.setItem(`storeWords`, JSON.stringify(wordsList));
+    }
+    setWords(JSON.parse(localStorage.getItem(`storeWords`)));
     setLoading(false);
   } catch (error) {
     console.log(error);

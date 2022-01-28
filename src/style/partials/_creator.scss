@@ -1,0 +1,72 @@
+// CREATOR
+
+.container {
+  &.content-col {
+    flex-direction: column;
+
+    h1 {
+      color: $clr-100;
+      font-size: pxToRem(23px);
+      font-weight: 400;
+      margin-bottom: pxToRem(20px);
+
+      &::first-letter {
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  .creator-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    svg {
+      fill: $clr-100;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      min-height: 100%;
+      padding: 0 0 pxToRem(20px) pxToRem(60px);
+
+      input {
+        all: unset;
+        @include setBorder();
+        color: $clr-100;
+        font-size: pxToRem(16px);
+        padding: pxToRem(20px);
+        min-width: pxToRem(300px);
+        max-width: pxToRem(300px);
+        margin-top: pxToRem(40px);
+      }
+
+      .btn-container {
+        display: flex;
+        margin-top: pxToRem(40px);
+      }
+
+      button {
+        all: unset;
+        @include setBorder();
+        cursor: pointer;
+        color: $clr-900;
+        background-color: $clr-100;
+        font-size: pxToRem(19px);
+        font-weight: 500;
+        padding: pxToRem(10px) pxToRem(15px);
+
+        &:nth-of-type(2) {
+          background-color: $clr-900;
+          color: $clr-100;
+          margin-left: pxToRem(40px);
+          border: none;
+        }
+      }
+    }
+  }
+}

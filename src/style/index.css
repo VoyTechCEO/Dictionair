@@ -783,6 +783,12 @@ header svg {
   transition: 0.2s;
 }
 
+.container.chapters-container {
+  -webkit-box-align: unset;
+      -ms-flex-align: unset;
+          align-items: unset;
+}
+
 .container .chapters-content {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -791,6 +797,7 @@ header svg {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  margin-top: 12.5rem;
   color: #ffffff;
 }
 
@@ -812,14 +819,56 @@ header svg {
           flex-direction: column;
 }
 
+.container .chapters-content ul li {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 18.75rem;
+  margin-top: 1.25rem;
+}
+
+.container .chapters-content ul li:hover button {
+  visibility: visible;
+}
+
+.container .chapters-content ul li:first-of-type {
+  margin-top: 0;
+}
+
+.container .chapters-content ul .delete-container {
+  position: absolute;
+  right: -3.75rem;
+  padding: 0 1.25rem;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container .chapters-content ul button {
+  all: unset;
+  cursor: pointer;
+  visibility: hidden;
+}
+
+.container .chapters-content ul svg {
+  fill: #ffffff;
+}
+
 .container .chapters-content ul a {
   all: unset;
   cursor: pointer;
   text-align: center;
-  margin-top: 1.25rem;
   font-size: 1.1875rem;
   padding: 1.25rem 0;
-  width: 18.75rem;
+  width: 100%;
   border: 1px #ffffff solid;
   border-radius: 4px;
   color: #ffffff;
@@ -828,19 +877,32 @@ header svg {
   transition: background-color 0.2s, color 0.2s;
 }
 
-.container .chapters-content ul a:first-of-type {
-  margin-top: 0;
-}
-
 .container .chapters-content ul a::first-letter {
   text-transform: uppercase;
 }
 
-.container .chapters-content ul a:hover {
+.container .chapters-content ul a.chapter-link:hover {
   background-color: #ffffff;
   color: #352940;
   -webkit-transition: 0.2s;
   transition: 0.2s;
+}
+
+.container .chapters-content ul a.create-chapter-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: unset;
+}
+
+.container .chapters-content ul a.create-chapter-btn svg {
+  margin-right: 1.25rem;
 }
 
 .container .exam-content {
@@ -1214,6 +1276,97 @@ keyframes
     -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
   }
+}
+
+.container.content-col {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.container.content-col h1 {
+  color: #ffffff;
+  font-size: 1.4375rem;
+  font-weight: 400;
+  margin-bottom: 1.25rem;
+}
+
+.container.content-col h1::first-letter {
+  text-transform: uppercase;
+}
+
+.container .creator-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+.container .creator-content svg {
+  fill: #ffffff;
+}
+
+.container .creator-content form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  min-height: 100%;
+  padding: 0 0 1.25rem 3.75rem;
+}
+
+.container .creator-content form input {
+  all: unset;
+  border: 1px #ffffff solid;
+  border-radius: 4px;
+  color: #ffffff;
+  font-size: 1rem;
+  padding: 1.25rem;
+  min-width: 18.75rem;
+  max-width: 18.75rem;
+  margin-top: 2.5rem;
+}
+
+.container .creator-content form .btn-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 2.5rem;
+}
+
+.container .creator-content form button {
+  all: unset;
+  border: 1px #ffffff solid;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #352940;
+  background-color: #ffffff;
+  font-size: 1.1875rem;
+  font-weight: 500;
+  padding: 0.625rem 0.9375rem;
+}
+
+.container .creator-content form button:nth-of-type(2) {
+  background-color: #352940;
+  color: #ffffff;
+  margin-left: 2.5rem;
+  border: none;
 }
 
 section {

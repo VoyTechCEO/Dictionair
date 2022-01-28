@@ -60,7 +60,6 @@ const FinishExamPop = ({ setExamPop }) => {
               setLoadingExam(true);
               setCurrentWordNumber(1);
               localStorage.setItem(`currentChapter`, chapter);
-              console.log(localStorage.getItem(`currentChapter`));
               localStorage.removeItem(`examWords`);
             }}
           >
