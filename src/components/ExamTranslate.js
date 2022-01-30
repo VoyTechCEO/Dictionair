@@ -12,11 +12,14 @@ const ExamTranslate = ({ setExamStatus, examWords }) => {
     return index + 1 === currentWordNumber;
   });
   const [answer, setAnswer] = useState(``);
+  console.log(currentWord);
 
   return (
     <>
       <h1 className='head'>PRZETŁUMACZ</h1>
-      <h4 className='exam-num'>{currentWordNumber} z 20</h4>
+      <h4 className='exam-num'>
+        {currentWordNumber} z {examWords.length}
+      </h4>
       <div className='input-line'>
         <label htmlFor='untranslated'>PL</label>
         <input

@@ -20,10 +20,10 @@ const Chapters = () => {
   }, []);
 
   return (
-    <section>
+    <section className='dictionary'>
       <Header isBackArrow={true} />
       {examPop && <FinishExamPop setExamPop={setExamPop} />}
-      <div className='container chapters-container'>
+      <div className='container'>
         <div className='chapters-content'>
           <h1>Wybierz rozdział</h1>
           <ul>

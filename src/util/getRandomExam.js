@@ -1,6 +1,12 @@
 const getRandomExam = (chapterWords) => {
   let randomNums = [];
-  for (let i = 0; i < 20; i++) {
+  let maxNum = 20;
+
+  if (chapterWords.length < 20) {
+    maxNum = chapterWords.length;
+  }
+
+  for (let i = 0; i < maxNum; i++) {
     let number = Math.floor(Math.random() * chapterWords.length);
 
     while (

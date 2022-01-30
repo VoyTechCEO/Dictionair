@@ -18,8 +18,12 @@ const DeleteChapterBtn = ({ name }) => {
             `storeWords`,
             JSON.stringify([{ chapters: [...newWords] }])
           );
-          setAddChapter(name);
           setWordsStatsList(JSON.parse(localStorage.getItem(`storeWords`)));
+          console.log(`znów nie działa`);
+          // if deleting problems occured uncomment the code below
+          // window.location.reload();
+          setAddChapter(name); // yeet this shit out
+          console.log(words);
         }}
       >
         <svg

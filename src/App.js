@@ -27,10 +27,7 @@ function App() {
     return <Loading />;
   }
 
-  if (!localStorage.getItem(`wordsStatsList`)) {
-    setWordsStatsList(words);
-  }
-
+  setWordsStatsList(words);
   console.log(words);
 
   return (

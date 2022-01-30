@@ -17,7 +17,9 @@ const ExamWrong = ({ setExamStatus, examWords, userAnswer }) => {
   return (
     <>
       <h1 className='head wrong'>ŹLE</h1>
-      <h4 className='exam-num'>{currentWordNumber} z 20</h4>
+      <h4 className='exam-num'>
+        {currentWordNumber} z {examWords.length}
+      </h4>
       <div className='input-line'>
         <label htmlFor='untranslated'>PL</label>
         <input
@@ -58,7 +60,7 @@ const ExamWrong = ({ setExamStatus, examWords, userAnswer }) => {
         type='submit'
         onClick={(e) => {
           e.preventDefault();
-          if (currentWordNumber < 20) {
+          if (currentWordNumber < examWords.length) {
             setCurrentWordNumber(currentWordNumber + 1);
           } else {
             setCurrentWordNumber(1);

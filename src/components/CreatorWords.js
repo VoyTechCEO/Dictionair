@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react/cjs/react.development';
 import { useRecoilState } from 'recoil';
 import { addChapterState, wordsState } from '../recoil';
@@ -13,6 +13,7 @@ const CreatorWords = () => {
   const [wordFor, setWordFor] = useState(``);
   const [wordsList, setWordsList] = useState([]);
   const [chapterList, setChapterList] = useState(words[0].chapters);
+  const navigate = useNavigate();
 
   useEffect(() => {
     localStorage.setItem(
@@ -20,7 +21,13 @@ const CreatorWords = () => {
       JSON.stringify([{ chapters: [...chapterList] }])
     );
     setAddChapter(chapterName);
-    setWordsStatsList(words);
+    if (
+      words[0].chapters.some((chp) => {
+        return chp.name === chapterName;
+      })
+    ) {
+      navigate(`/chapters`);
+    }
   }, [chapterList]);
 
   return (
@@ -30,6 +37,8 @@ const CreatorWords = () => {
         id='add-chapter'
         name='add-chapter'
         placeholder='Polskie tłumaczenie'
+        autoFocus
+        autoComplete='off'
         value={wordPL}
         onChange={(e) => {
           setWordPL(e.target.value);
@@ -40,6 +49,7 @@ const CreatorWords = () => {
         id='add-chapter'
         name='add-chapter'
         placeholder='Obcojęzyczne tłumaczenie'
+        autoComplete='off'
         value={wordFor}
         onChange={(e) => {
           setWordFor(e.target.value);
@@ -47,6 +57,7 @@ const CreatorWords = () => {
       />
       <div className='btn-container'>
         <button
+          type='submit'
           onClick={(e) => {
             e.preventDefault();
             if (
@@ -66,7 +77,6 @@ const CreatorWords = () => {
           Dodaj
         </button>
         <button
-          type='submit'
           onClick={(e) => {
             e.preventDefault();
             const newChapter = {

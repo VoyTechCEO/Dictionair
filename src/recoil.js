@@ -58,7 +58,7 @@ const afterExamPopState = atom({
 
 const addChapterState = atom({
   key: `addChapterState`,
-  default: [],
+  default: ``,
 });
 
 export {

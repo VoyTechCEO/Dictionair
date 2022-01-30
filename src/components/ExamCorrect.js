@@ -4,7 +4,7 @@ import { useRecoilState } from 'recoil';
 import { afterExamPopState, currentWordNumberState } from '../recoil';
 import { useNavigate } from 'react-router-dom';
 
-const ExamCorrect = ({ setExamStatus }) => {
+const ExamCorrect = ({ setExamStatus, examWords }) => {
   const [currentWordNumber, setCurrentWordNumber] = useRecoilState(
     currentWordNumberState
   );
@@ -14,7 +14,7 @@ const ExamCorrect = ({ setExamStatus }) => {
 
   useEffect(() => {
     const timeout = setTimeout(() => {
-      if (currentWordNumber < 20) {
+      if (currentWordNumber < examWords.length) {
         setCurrentWordNumber(currentWordNumber + 1);
       } else {
         setCurrentWordNumber(1);
@@ -33,7 +33,9 @@ const ExamCorrect = ({ setExamStatus }) => {
   return (
     <>
       <h1 className='head'>PRZETŁUMACZ</h1>
-      <h4 className='exam-num'>{currentWordNumber} z 20</h4>
+      <h4 className='exam-num'>
+        {currentWordNumber} z {examWords.length}
+      </h4>
       <svg
         width='125'
         height='125'

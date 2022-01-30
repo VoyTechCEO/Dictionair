@@ -36,7 +36,7 @@ const Exam = () => {
         );
       } else {
         const chapterWords = words[0].chapters[chapterNum].words;
-        getRandomExam(chapterWords, setLoadingExam);
+        getRandomExam(chapterWords);
       }
     }
     setLoadingExam(false);
@@ -56,7 +56,7 @@ const Exam = () => {
             />
           )}
           {!loadingExam && examStatus === `correct` && (
-            <ExamCorrect setExamStatus={setExamStatus} />
+            <ExamCorrect setExamStatus={setExamStatus} examWords={examWords} />
           )}
           {!loadingExam && examStatus === `translateAgain` && (
             <ExamTranslateAgain

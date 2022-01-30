@@ -1,13 +1,10 @@
 // CHAPTERS
 
 .container {
-  &.chapters-container {
-    align-items: unset;
-  }
   .chapters-content {
     display: flex;
     flex-direction: column;
-    margin-top: pxToRem(200px);
+    margin-top: calc(10vh + 100px);
     color: $clr-100;
 
     h1 {

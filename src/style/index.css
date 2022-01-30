@@ -710,8 +710,8 @@ header svg {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  height: 21.875rem;
-  padding-right: 3.75rem;
+  height: 22.5rem;
+  padding-right: 3.125rem;
 }
 
 .stats .content .stat {
@@ -739,6 +739,20 @@ header svg {
   font-weight: 400;
 }
 
+.stats .content .reset-container {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .stats .content button {
   all: unset;
   cursor: pointer;
@@ -748,16 +762,18 @@ header svg {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 0.9375rem 0.625rem;
+  padding: 0.9375rem 0;
   color: #ffffff;
   background-color: #352940;
   -webkit-transition: background-color 0.2s, color 0.2s;
   transition: background-color 0.2s, color 0.2s;
+  width: 100%;
 }
 
 .stats .content button:hover {
@@ -773,6 +789,14 @@ header svg {
 
 .stats .content button svg {
   fill: #ffffff;
+  margin-right: 1.25rem;
+}
+
+.stats .content p {
+  margin-top: 1.25rem;
+  font-size: 0.9375rem;
+  width: 13.75rem;
+  line-height: 1rem;
 }
 
 .show-stats {
@@ -783,12 +807,6 @@ header svg {
   transition: 0.2s;
 }
 
-.container.chapters-container {
-  -webkit-box-align: unset;
-      -ms-flex-align: unset;
-          align-items: unset;
-}
-
 .container .chapters-content {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -797,7 +815,7 @@ header svg {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin-top: 12.5rem;
+  margin-top: calc(10vh + 100px);
   color: #ffffff;
 }
 

@@ -16,8 +16,8 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: pxToRem(350px);
-    padding-right: pxToRem(60px);
+    height: pxToRem(360px);
+    padding-right: pxToRem(50px);
 
     .stat {
       display: flex;
@@ -36,18 +36,26 @@
       }
     }
 
+    .reset-container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
     button {
       all: unset;
       cursor: pointer;
       font-size: pxToRem(19px);
       @include setBorder();
       display: flex;
-      justify-content: space-around;
+      justify-content: center;
       align-items: center;
-      padding: pxToRem(15px) pxToRem(10px);
+      padding: pxToRem(15px) 0;
       color: $clr-100;
       background-color: $clr-900;
       transition: background-color 0.2s, color 0.2s;
+      width: 100%;
 
       &:hover {
         background-color: $clr-100;
@@ -62,7 +70,15 @@
 
       svg {
         fill: $clr-100;
+        margin-right: pxToRem(20px);
       }
+    }
+
+    p {
+      margin-top: pxToRem(20px);
+      font-size: pxToRem(15px);
+      width: pxToRem(220px);
+      line-height: pxToRem(16px);
     }
   }
 }
