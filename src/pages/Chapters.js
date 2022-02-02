@@ -1,18 +1,18 @@
-import React from 'react';
-import { useEffect, useState } from 'react/cjs/react.development';
+import React, { useEffect, useState } from 'react';
 import Header from '../components/Header';
 import Stats from '../components/Stats';
 import FinishExamPop from '../components/FinishExamPop';
 import DeleteChapterBtn from '../components/DeleteChapterBtn';
 
 import { useRecoilState } from 'recoil';
-import { wordsState, loadingExamState } from '../recoil';
+import { wordsState, loadingExamState, chapterDelState } from '../recoil';
 
 import { Link } from 'react-router-dom';
 
 const Chapters = () => {
   const [words, setWords] = useRecoilState(wordsState);
   const [loadingExam, setLoadingExam] = useRecoilState(loadingExamState);
+  const [chapterDel, setChapterDel] = useRecoilState(chapterDelState);
   const [examPop, setExamPop] = useState(false);
 
   useEffect(() => {
@@ -50,7 +50,14 @@ const Chapters = () => {
               // If you want to edit some of the stuff below or anything that's related to chapters' navigation you better check code at FinishExamPop.js in components.
               if (localStorage.getItem(`examWords`)) {
                 return (
-                  <li key={`chapter${index}`}>
+                  <li
+                    key={`chapter${index}`}
+                    style={
+                      chapterDel.some((chapter) => chapter === name)
+                        ? { display: 'none' }
+                        : {}
+                    }
+                  >
                     <Link
                       className='chapter-link'
                       to={`/chapters/${name}`}
@@ -67,7 +74,14 @@ const Chapters = () => {
               //=====================================//
 
               return (
-                <li key={`chapter${index}`}>
+                <li
+                  key={`chapter${index}`}
+                  style={
+                    chapterDel.some((chapter) => chapter === name)
+                      ? { display: 'none' }
+                      : {}
+                  }
+                >
                   <Link
                     className='chapter-link'
                     to={`/exam/${name}`}

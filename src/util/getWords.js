@@ -27,12 +27,21 @@ const analytics = getAnalytics(app);
 
 const getWords = async (setWords, setLoading) => {
   try {
-    const wordsCol = collection(db, 'words');
-    const wordsSnapshot = await getDocs(wordsCol);
-    const wordsList = wordsSnapshot.docs.map((doc) => doc.data());
     if (!localStorage.getItem(`storeWords`)) {
+      const wordsCol = collection(db, 'words');
+      const wordsSnapshot = await getDocs(wordsCol);
+      const wordsList = wordsSnapshot.docs.map((doc) => doc.data());
       localStorage.setItem(`storeWords`, JSON.stringify(wordsList));
     }
+    const editWords = JSON.parse(localStorage.getItem(`storeWords`));
+    editWords[0].chapters.forEach((chapter) => {
+      chapter.words.forEach((wordObject) => {
+        if (!wordObject.status) {
+          wordObject.status = ``;
+        }
+      });
+    });
+    localStorage.setItem(`storeWords`, JSON.stringify(editWords));
     setWords(JSON.parse(localStorage.getItem(`storeWords`)));
     setLoading(false);
   } catch (error) {

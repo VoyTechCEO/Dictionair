@@ -61,6 +61,11 @@ const addChapterState = atom({
   default: ``,
 });
 
+const chapterDelState = atom({
+  key: `chapterDelState`,
+  default: [],
+});
+
 export {
   loadingState,
   wordsState,
@@ -73,4 +78,5 @@ export {
   searchTermState,
   afterExamPopState,
   addChapterState,
+  chapterDelState,
 };

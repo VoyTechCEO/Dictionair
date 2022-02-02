@@ -9,9 +9,6 @@ const setWordsStatsList = (words) => {
     });
     collectedWordsList = [...collectedWordsList, ...chapterWords];
   });
-  collectedWordsList.forEach((wordObject) => {
-    wordObject.status = ``;
-  });
   localStorage.setItem(`wordsStatsList`, JSON.stringify(collectedWordsList));
 };
 

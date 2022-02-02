@@ -1,16 +1,18 @@
 import React from 'react';
 import { useRecoilState } from 'recoil';
-import { addChapterState, wordsState } from '../recoil';
+import { addChapterState, chapterDelState, wordsState } from '../recoil';
 import setWordsStatsList from '../util/setWordsStatsList';
 
 const DeleteChapterBtn = ({ name }) => {
   const [words, setWords] = useRecoilState(wordsState);
   const [addChapter, setAddChapter] = useRecoilState(addChapterState);
+  const [chapterDel, setChapterDel] = useRecoilState(chapterDelState);
 
   return (
     <div className='delete-container'>
       <button
         onClick={() => {
+          const chapNum = words[0].chapters.length;
           const newWords = words[0].chapters.filter((chapter) => {
             return chapter.name !== name;
           });
@@ -19,11 +21,10 @@ const DeleteChapterBtn = ({ name }) => {
             JSON.stringify([{ chapters: [...newWords] }])
           );
           setWordsStatsList(JSON.parse(localStorage.getItem(`storeWords`)));
-          console.log(`znów nie działa`);
           // if deleting problems occured uncomment the code below
           // window.location.reload();
           setAddChapter(name); // yeet this shit out
-          console.log(words);
+          setChapterDel([...chapterDel, name]);
         }}
       >
         <svg

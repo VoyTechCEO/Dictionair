@@ -3,7 +3,6 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react/cjs/react.development';
 import { useRecoilState } from 'recoil';
 import { addChapterState, wordsState } from '../recoil';
-import setWordsStatsList from '../util/setWordsStatsList';
 
 const CreatorWords = () => {
   const { chapterName } = useParams();
@@ -28,6 +27,7 @@ const CreatorWords = () => {
     ) {
       navigate(`/chapters`);
     }
+    console.log(JSON.parse(localStorage.getItem(`storeWords`)));
   }, [chapterList]);
 
   return (

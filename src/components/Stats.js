@@ -1,12 +1,13 @@
 import React from 'react';
-import { useState } from 'react/cjs/react.development';
 import { useRecoilState } from 'recoil';
-import { statsSwitchState, addChapterState } from '../recoil';
+import { statsSwitchState, addChapterState, chapterDelState } from '../recoil';
 
 const Stats = () => {
   const [statsSwitch, setStatsSwitch] = useRecoilState(statsSwitchState);
   const [addChapter, setAddChapter] = useRecoilState(addChapterState);
+  const [chapterDel, setChapterDel] = useRecoilState(chapterDelState);
   const wordsStatsList = JSON.parse(localStorage.getItem(`wordsStatsList`));
+
   const unknownWords = wordsStatsList.filter((wordObject) => {
     return wordObject.status === ``;
   });
@@ -38,8 +39,8 @@ const Stats = () => {
               localStorage.removeItem(`storeWords`);
               localStorage.removeItem(`wordsStatsList`);
               localStorage.removeItem(`examWords`);
-              setAddChapter(`reset`);
-              // window.location.reload();
+              setChapterDel([]);
+              setAddChapter(Date.now());
             }}
           >
             <svg
