@@ -39,6 +39,7 @@ const CreatorWords = () => {
         placeholder='Polskie tłumaczenie'
         autoFocus
         autoComplete='off'
+        required
         value={wordPL}
         onChange={(e) => {
           setWordPL(e.target.value);
@@ -50,6 +51,7 @@ const CreatorWords = () => {
         name='add-chapter'
         placeholder='Obcojęzyczne tłumaczenie'
         autoComplete='off'
+        required
         value={wordFor}
         onChange={(e) => {
           setWordFor(e.target.value);

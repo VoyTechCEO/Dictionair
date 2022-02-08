@@ -3,13 +3,15 @@ import { useRecoilState } from 'recoil';
 import { addChapterState, chapterDelState, wordsState } from '../recoil';
 import setWordsStatsList from '../util/setWordsStatsList';
 
-const DeleteChapterBtn = ({ name }) => {
+import { animated } from 'react-spring';
+
+const DeleteChapterBtn = ({ name, delBtnAni }) => {
   const [words, setWords] = useRecoilState(wordsState);
   const [addChapter, setAddChapter] = useRecoilState(addChapterState);
   const [chapterDel, setChapterDel] = useRecoilState(chapterDelState);
 
   return (
-    <div className='delete-container'>
+    <animated.div className='delete-container' style={delBtnAni}>
       <button
         onClick={() => {
           const chapNum = words[0].chapters.length;
@@ -40,7 +42,7 @@ const DeleteChapterBtn = ({ name }) => {
           />
         </svg>
       </button>
-    </div>
+    </animated.div>
   );
 };
 

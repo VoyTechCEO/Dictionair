@@ -20,11 +20,11 @@
       display: flex;
       flex-direction: column;
 
-      &:hover {
-        .img-container {
-          border: 1px $clr-100 solid;
-        }
-      }
+      // &:hover {
+      //   .img-container {
+      //     border: 1px $clr-100 solid;
+      //   }
+      // }
     }
 
     .border {
@@ -38,16 +38,33 @@
       width: pxToRem(110px);
       height: pxToRem(110px);
       border-radius: 50%;
+      position: relative;
+      border: 1px $clr-100 solid;
+
+      .border-cover {
+        background-color: $clr-900;
+        height: pxToRem(120px);
+        width: 102%;
+        position: absolute;
+        top: -2%;
+        right: -1%;
+
+        &:first-of-type {
+          left: -1%;
+        }
+      }
     }
 
     svg {
       fill: $clr-100;
+      z-index: 999;
     }
 
     h4 {
       margin-top: pxToRem(15px);
       font-size: pxToRem(16px);
       text-align: center;
+      z-index: 999;
     }
   }
 }

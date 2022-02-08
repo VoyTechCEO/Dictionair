@@ -2,21 +2,43 @@ import React, { useEffect, useState } from 'react';
 import Header from '../components/Header';
 import Stats from '../components/Stats';
 import FinishExamPop from '../components/FinishExamPop';
-import DeleteChapterBtn from '../components/DeleteChapterBtn';
+import ChaptersRegularLink from '../components/ChaptersRegularLink';
 
 import { useRecoilState } from 'recoil';
-import { wordsState, loadingExamState, chapterDelState } from '../recoil';
+import { wordsState, loadingExamState } from '../recoil';
 
 import { Link } from 'react-router-dom';
+
+import { useSpring, animated } from 'react-spring';
 
 const Chapters = () => {
   const [words, setWords] = useRecoilState(wordsState);
   const [loadingExam, setLoadingExam] = useRecoilState(loadingExamState);
-  const [chapterDel, setChapterDel] = useRecoilState(chapterDelState);
   const [examPop, setExamPop] = useState(false);
 
   useEffect(() => {
     setLoadingExam(true);
+  }, []);
+
+  // animations
+  const [initChapterLink, api] = useSpring(() => ({
+    from: { x: -100, opacity: 0 },
+  }));
+
+  const [rotateAddBtnAni, animateRotateAddBtnAni] = useSpring(() => ({
+    from: { rotateZ: 0 },
+  }));
+
+  const [underlineAddBtnAni, animateUnderlineAddBtnAni] = useSpring(() => ({
+    from: { width: `0` },
+  }));
+
+  useEffect(() => {
+    api.start({
+      x: 0,
+      opacity: 1,
+      delay: 100 * words[0].chapters.length,
+    });
   }, []);
 
   return (
@@ -27,9 +49,19 @@ const Chapters = () => {
         <div className='chapters-content'>
           <h1>Wybierz rozdział</h1>
           <ul>
-            <li>
+            <li
+              onMouseOver={() => {
+                animateRotateAddBtnAni.start({ rotateZ: 90 });
+                animateUnderlineAddBtnAni.start({ width: `100%` });
+              }}
+              onMouseOut={() => {
+                animateRotateAddBtnAni.start({ rotateZ: 0 });
+                animateUnderlineAddBtnAni.start({ width: `0` });
+              }}
+            >
               <Link to='/chapters/create' className='create-chapter-btn'>
-                <svg
+                <animated.svg
+                  style={rotateAddBtnAni}
                   height='17'
                   version='1.1'
                   viewBox='0 0 52.917 52.917'
@@ -38,9 +70,10 @@ const Chapters = () => {
                   <g transform='translate(-115.79 -19.591)'>
                     <path d='m142.25 72.508h-2.6458v-23.813h-23.812v-5.2917h23.812v-23.813h5.2917v23.813h23.812v5.2917h-23.812v23.813z' />
                   </g>
-                </svg>
+                </animated.svg>
                 <span>Dodaj rozdział</span>
               </Link>
+              <animated.div className='underline' style={underlineAddBtnAni} />
             </li>
             {words[0].chapters.map((chapter, index) => {
               let name = chapter.name;
@@ -50,53 +83,30 @@ const Chapters = () => {
               // If you want to edit some of the stuff below or anything that's related to chapters' navigation you better check code at FinishExamPop.js in components.
               if (localStorage.getItem(`examWords`)) {
                 return (
-                  <li
+                  <ChaptersRegularLink
                     key={`chapter${index}`}
-                    style={
-                      chapterDel.some((chapter) => chapter === name)
-                        ? { display: 'none' }
-                        : {}
-                    }
-                  >
-                    <Link
-                      className='chapter-link'
-                      to={`/chapters/${name}`}
-                      onClick={() => {
-                        setExamPop(true);
-                      }}
-                    >
-                      {name}
-                    </Link>
-                    <DeleteChapterBtn name={name} />
-                  </li>
+                    name={name}
+                    url={`/chapters/${name}`}
+                    setExamPop={setExamPop}
+                    setLoadingExam={setLoadingExam}
+                    linkIndex={index}
+                  />
                 );
               }
               //=====================================//
 
               return (
-                <li
+                <ChaptersRegularLink
                   key={`chapter${index}`}
-                  style={
-                    chapterDel.some((chapter) => chapter === name)
-                      ? { display: 'none' }
-                      : {}
-                  }
-                >
-                  <Link
-                    className='chapter-link'
-                    to={`/exam/${name}`}
-                    onClick={() => {
-                      setLoadingExam(true);
-                      localStorage.setItem(`currentChapter`, name);
-                    }}
-                  >
-                    {name}
-                  </Link>
-                  <DeleteChapterBtn name={name} />
-                </li>
+                  name={name}
+                  url={`/exam/${name}`}
+                  setExamPop={setExamPop}
+                  setLoadingExam={setLoadingExam}
+                  linkIndex={index}
+                />
               );
             })}
-            <li>
+            <animated.li style={initChapterLink}>
               <Link
                 className='chapter-link'
                 to={
@@ -115,7 +125,7 @@ const Chapters = () => {
               >
                 cały zakres
               </Link>
-            </li>
+            </animated.li>
           </ul>
         </div>
       </div>

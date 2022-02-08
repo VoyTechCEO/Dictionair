@@ -642,10 +642,6 @@ header svg {
           flex-direction: column;
 }
 
-.container .home-content a:hover .img-container {
-  border: 1px #ffffff solid;
-}
-
 .container .home-content .border {
   height: 15.625rem;
   width: 0.0625rem;
@@ -665,16 +661,33 @@ header svg {
   width: 6.875rem;
   height: 6.875rem;
   border-radius: 50%;
+  position: relative;
+  border: 1px #ffffff solid;
+}
+
+.container .home-content .img-container .border-cover {
+  background-color: #352940;
+  height: 7.5rem;
+  width: 102%;
+  position: absolute;
+  top: -2%;
+  right: -1%;
+}
+
+.container .home-content .img-container .border-cover:first-of-type {
+  left: -1%;
 }
 
 .container .home-content svg {
   fill: #ffffff;
+  z-index: 999;
 }
 
 .container .home-content h4 {
   margin-top: 0.9375rem;
   font-size: 1rem;
   text-align: center;
+  z-index: 999;
 }
 
 .stats {
@@ -849,12 +862,16 @@ header svg {
   margin-top: 1.25rem;
 }
 
-.container .chapters-content ul li:hover button {
-  visibility: visible;
-}
-
 .container .chapters-content ul li:first-of-type {
   margin-top: 0;
+}
+
+.container .chapters-content ul .underline {
+  position: absolute;
+  bottom: 0;
+  background-color: #ffffff;
+  height: 0.0625rem;
+  z-index: 99;
 }
 
 .container .chapters-content ul .delete-container {
@@ -873,7 +890,6 @@ header svg {
 .container .chapters-content ul button {
   all: unset;
   cursor: pointer;
-  visibility: hidden;
 }
 
 .container .chapters-content ul svg {
@@ -1071,6 +1087,24 @@ header svg {
   font-weight: 600;
   padding: 1.25rem 1.5625rem;
   margin-top: 1.875rem;
+}
+
+.container .exam-content .svg-container {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.container .exam-content .cover {
+  position: absolute;
+  background-color: #ffffff;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  z-index: 99;
 }
 
 .container .exam-content svg {

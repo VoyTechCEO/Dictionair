@@ -124,6 +124,21 @@
       margin-top: pxToRem(30px);
     }
 
+    .svg-container {
+      position: relative;
+      display: flex;
+    }
+
+    .cover {
+      position: absolute;
+      background-color: $clr-100;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      transform: rotate(180deg);
+      z-index: 99;
+    }
+
     svg {
       fill: $clr-900;
     }

@@ -26,13 +26,17 @@
         width: pxToRem(300px);
         margin-top: pxToRem(20px);
 
-        &:hover button {
-          visibility: visible;
-        }
-
         &:first-of-type {
           margin-top: 0;
         }
+      }
+
+      .underline {
+        position: absolute;
+        bottom: 0;
+        background-color: $clr-100;
+        height: pxToRem(1px);
+        z-index: 99;
       }
 
       .delete-container {
@@ -47,7 +51,6 @@
       button {
         all: unset;
         cursor: pointer;
-        visibility: hidden;
       }
 
       svg {
