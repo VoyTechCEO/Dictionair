@@ -17,6 +17,14 @@ const ExamWrong = ({ setExamStatus, examWords, userAnswer }) => {
   const navigate = useNavigate();
 
   // animations
+  const [hoverBtnNonBg, animateHoverBtnNonBg] = useSpring(() => ({
+    from: { width: `0`, height: `0`, y: 0 },
+  }));
+
+  const [hideBorder, animateHideBorder] = useSpring(() => ({
+    from: { borderRadius: `4px` },
+  }));
+
   const [initWrong, api] = useSpring(() => ({
     from: { width: `100%` },
   }));
@@ -72,8 +80,17 @@ const ExamWrong = ({ setExamStatus, examWords, userAnswer }) => {
           value={currentWord.wordENG}
         />
       </div>
-      <button
+      <animated.button
         type='submit'
+        style={hideBorder}
+        onMouseOver={() => {
+          animateHoverBtnNonBg.start({ width: `100%`, height: `100%` });
+          animateHideBorder.start({ borderRadius: `0` });
+        }}
+        onMouseOut={() => {
+          animateHoverBtnNonBg.start({ width: `0`, height: `0` });
+          animateHideBorder.start({ borderRadius: `4px`, delay: 400 });
+        }}
         onClick={(e) => {
           e.preventDefault();
           if (currentWordNumber < examWords.length) {
@@ -87,8 +104,9 @@ const ExamWrong = ({ setExamStatus, examWords, userAnswer }) => {
           setExamStatus(`translate`);
         }}
       >
-        Następne
-      </button>
+        <span>Następne</span>
+        <animated.div className='underline' style={hoverBtnNonBg} />
+      </animated.button>
     </>
   );
 };

@@ -60,12 +60,42 @@
         padding: pxToRem(10px) pxToRem(20px);
         font-size: pxToRem(20px);
         font-weight: 600;
+        position: relative;
+        overflow: hidden;
 
         &.clr-bg {
-          color: $clr-100;
-          background-color: $clr-900;
+          @include setBorder($clr-900);
           font-weight: 400;
         }
+      }
+
+      .cover {
+        position: absolute;
+        left: 0;
+        top: 0;
+        overflow: hidden;
+        background-color: $clr-900;
+        color: $clr-100;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        z-index: 99;
+
+        span {
+          position: absolute;
+          left: pxToRem(20px);
+        }
+      }
+
+      .underline {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: pxToRem(1px);
+        background-color: $clr-900;
       }
 
       &.after-exam-btn {

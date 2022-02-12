@@ -51,15 +51,20 @@
       label {
         font-weight: 600;
         position: absolute;
+        left: 0;
+        height: 100%;
+        display: flex;
+        align-items: center;
         user-select: none;
-        margin-left: pxToRem(20px);
+        padding: pxToRem(20px);
+        border-radius: 4px;
       }
 
       input {
         all: unset;
         text-align: center;
-        width: pxToRem(300px);
-        padding: pxToRem(20px) pxToRem(70px);
+        width: pxToRem(400px);
+        padding: pxToRem(20px) pxToRem(20px);
       }
 
       &:last-of-type {
@@ -69,6 +74,8 @@
         margin-top: pxToRem(40px);
 
         label {
+          border-radius: 4px;
+          background-color: inherit;
           font-weight: 400;
         }
 
@@ -122,6 +129,18 @@
       font-weight: 600;
       padding: pxToRem(20px) pxToRem(25px);
       margin-top: pxToRem(30px);
+      position: relative;
+      overflow: hidden;
+
+      .underline {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 0;
+        border-left: solid 1px $clr-900;
+        border-bottom: solid 1px $clr-900;
+      }
     }
 
     .svg-container {

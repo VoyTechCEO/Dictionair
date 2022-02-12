@@ -1,15 +1,32 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import { afterExamPopState } from '../recoil';
+
+import { useSpring, animated } from 'react-spring';
 
 const AfterExamPop = () => {
   const [afterExamPop, setAfterExamPop] = useRecoilState(afterExamPopState);
   const navigate = useNavigate();
 
+  // animations
+  const [initPop, api] = useSpring(() => ({
+    from: { y: -100 },
+  }));
+
+  const [hoverBtnNonBg, animateHoverBtnNonBg] = useSpring(() => ({
+    from: { width: `0`, y: 0 },
+  }));
+
+  useEffect(() => {
+    api.start({
+      y: 0,
+    });
+  });
+
   return (
     <div className='exam-pop-container'>
-      <article className='exam-pop'>
+      <animated.article className='exam-pop' style={initPop}>
         <button
           onClick={() => {
             setAfterExamPop(false);
@@ -37,14 +54,21 @@ const AfterExamPop = () => {
         <div className='btn-container after-exam-btn'>
           <Link
             to='/'
+            onMouseOver={() => {
+              animateHoverBtnNonBg.start({ width: `100%` });
+            }}
+            onMouseOut={() => {
+              animateHoverBtnNonBg.start({ width: `0` });
+            }}
             onClick={() => {
               setAfterExamPop(false);
             }}
           >
-            OK
+            <span>OK</span>
+            <animated.div className='underline' style={hoverBtnNonBg} />
           </Link>
         </div>
-      </article>
+      </animated.article>
     </div>
   );
 };

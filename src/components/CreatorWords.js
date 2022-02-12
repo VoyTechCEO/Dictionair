@@ -1,8 +1,11 @@
 import React from 'react';
+import CreatorInput from '../components/CreatorInput';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react/cjs/react.development';
 import { useRecoilState } from 'recoil';
 import { addChapterState, wordsState } from '../recoil';
+
+import { useSpring, animated } from 'react-spring';
 
 const CreatorWords = () => {
   const { chapterName } = useParams();
@@ -30,36 +33,49 @@ const CreatorWords = () => {
     console.log(JSON.parse(localStorage.getItem(`storeWords`)));
   }, [chapterList]);
 
+  // animations
+  const [initForm, api] = useSpring(() => ({
+    from: { x: 100, opacity: 0 },
+  }));
+
+  const [hoverBtnBg, animateHoverBtnBg] = useSpring(() => ({
+    from: { width: `100%`, y: 0 },
+  }));
+
+  const [hoverBtnNonBg, animateHoverBtnNonBg] = useSpring(() => ({
+    from: { width: `0`, y: 0 },
+  }));
+
+  useEffect(() => {
+    api.start({
+      x: 0,
+      opacity: 1,
+    });
+  }, []);
+
   return (
-    <form>
-      <input
-        type='text'
-        id='add-chapter'
-        name='add-chapter'
-        placeholder='Polskie tłumaczenie'
-        autoFocus
-        autoComplete='off'
-        required
+    <animated.form style={initForm}>
+      <CreatorInput
         value={wordPL}
-        onChange={(e) => {
-          setWordPL(e.target.value);
-        }}
+        setValue={setWordPL}
+        id='wordPL'
+        placeholder='Polskie tłumaczenie'
       />
-      <input
-        type='text'
-        id='add-chapter'
-        name='add-chapter'
-        placeholder='Obcojęzyczne tłumaczenie'
-        autoComplete='off'
-        required
+      <CreatorInput
         value={wordFor}
-        onChange={(e) => {
-          setWordFor(e.target.value);
-        }}
+        setValue={setWordFor}
+        id='wordFor'
+        placeholder='Obcojęzyczne tłumaczenie'
       />
       <div className='btn-container'>
         <button
           type='submit'
+          onMouseOver={() => {
+            animateHoverBtnBg.start({ width: `0` });
+          }}
+          onMouseOut={() => {
+            animateHoverBtnBg.start({ width: `100%` });
+          }}
           onClick={(e) => {
             e.preventDefault();
             if (
@@ -76,9 +92,18 @@ const CreatorWords = () => {
             }
           }}
         >
-          Dodaj
+          <animated.div className='cover' style={hoverBtnBg}>
+            <span>Dodaj</span>
+          </animated.div>
+          <span>Dodaj</span>
         </button>
         <button
+          onMouseOver={() => {
+            animateHoverBtnNonBg.start({ width: `100%` });
+          }}
+          onMouseOut={() => {
+            animateHoverBtnNonBg.start({ width: `0` });
+          }}
           onClick={(e) => {
             e.preventDefault();
             const newChapter = {
@@ -89,10 +114,11 @@ const CreatorWords = () => {
             window.location.reload();
           }}
         >
-          Zapisz
+          <span>Zapisz</span>
+          <animated.div className='underline' style={hoverBtnNonBg} />
         </button>
       </div>
-    </form>
+    </animated.form>
   );
 };
 

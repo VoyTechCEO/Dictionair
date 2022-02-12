@@ -812,14 +812,6 @@ header svg {
   line-height: 1rem;
 }
 
-.show-stats {
-  -webkit-transform: translate(0);
-          transform: translate(0);
-  opacity: 1;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
-}
-
 .container .chapters-content {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1009,18 +1001,27 @@ header svg {
 .container .exam-content .input-line label {
   font-weight: 600;
   position: absolute;
+  left: 0;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  margin-left: 1.25rem;
+  padding: 1.25rem;
+  border-radius: 4px;
 }
 
 .container .exam-content .input-line input {
   all: unset;
   text-align: center;
-  width: 18.75rem;
-  padding: 1.25rem 4.375rem;
+  width: 25rem;
+  padding: 1.25rem 1.25rem;
 }
 
 .container .exam-content .input-line:last-of-type {
@@ -1031,6 +1032,8 @@ header svg {
 }
 
 .container .exam-content .input-line:last-of-type label {
+  border-radius: 4px;
+  background-color: inherit;
   font-weight: 400;
 }
 
@@ -1087,6 +1090,18 @@ header svg {
   font-weight: 600;
   padding: 1.25rem 1.5625rem;
   margin-top: 1.875rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.container .exam-content button .underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: solid 1px #352940;
+  border-bottom: solid 1px #352940;
 }
 
 .container .exam-content .svg-container {
@@ -1308,12 +1323,49 @@ keyframes
   padding: 0.625rem 1.25rem;
   font-size: 1.25rem;
   font-weight: 600;
+  position: relative;
+  overflow: hidden;
 }
 
 .exam-pop-container .exam-pop .btn-container a.clr-bg {
-  color: #ffffff;
-  background-color: #352940;
+  border: 1px #352940 solid;
+  border-radius: 4px;
   font-weight: 400;
+}
+
+.exam-pop-container .exam-pop .btn-container .cover {
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+  background-color: #352940;
+  color: #ffffff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+  width: 100%;
+  z-index: 99;
+}
+
+.exam-pop-container .exam-pop .btn-container .cover span {
+  position: absolute;
+  left: 1.25rem;
+}
+
+.exam-pop-container .exam-pop .btn-container .underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 0.0625rem;
+  background-color: #352940;
 }
 
 .exam-pop-container .exam-pop .btn-container.after-exam-btn {
@@ -1383,6 +1435,46 @@ keyframes
   padding: 0 0 1.25rem 3.75rem;
 }
 
+.container .creator-content form .input-container {
+  position: relative;
+  margin-top: 2.5rem;
+  color: #ffffff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container .creator-content form .input-container label {
+  position: absolute;
+  left: 0;
+  margin: 0.625rem;
+  padding: 0 0.625rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #352940;
+  z-index: 9;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  border-radius: 4px;
+}
+
+.container .creator-content form .input-container span {
+  padding-top: 0.25rem;
+  margin: 0 0.4375rem;
+}
+
 .container .creator-content form input {
   all: unset;
   border: 1px #ffffff solid;
@@ -1392,7 +1484,7 @@ keyframes
   padding: 1.25rem;
   min-width: 18.75rem;
   max-width: 18.75rem;
-  margin-top: 2.5rem;
+  z-index: 99;
 }
 
 .container .creator-content form .btn-container {
@@ -1407,11 +1499,12 @@ keyframes
   border: 1px #ffffff solid;
   border-radius: 4px;
   cursor: pointer;
-  color: #352940;
-  background-color: #ffffff;
+  color: #ffffff;
+  background-color: #352940;
   font-size: 1.1875rem;
   font-weight: 500;
-  padding: 0.625rem 0.9375rem;
+  padding: 0.625rem 1.25rem;
+  position: relative;
 }
 
 .container .creator-content form button:nth-of-type(2) {
@@ -1419,6 +1512,41 @@ keyframes
   color: #ffffff;
   margin-left: 2.5rem;
   border: none;
+}
+
+.container .creator-content form .cover {
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+  background-color: #ffffff;
+  color: #352940;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+  width: 100%;
+  z-index: 99;
+}
+
+.container .creator-content form .cover span {
+  position: absolute;
+  left: 1.25rem;
+}
+
+.container .creator-content form .underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 0.0625rem;
+  background-color: #ffffff;
 }
 
 section {

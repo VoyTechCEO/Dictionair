@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import {
@@ -6,6 +6,8 @@ import {
   examStatusState,
   loadingExamState,
 } from '../recoil';
+
+import { useSpring, animated } from 'react-spring';
 
 const FinishExamPop = ({ setExamPop }) => {
   const { chapter } = useParams();
@@ -16,9 +18,28 @@ const FinishExamPop = ({ setExamPop }) => {
   );
   const navigate = useNavigate();
 
+  // animations
+  const [initPop, api] = useSpring(() => ({
+    from: { y: -100 },
+  }));
+
+  const [hoverBtnBg, animateHoverBtnBg] = useSpring(() => ({
+    from: { width: `100%`, y: 0 },
+  }));
+
+  const [hoverBtnNonBg, animateHoverBtnNonBg] = useSpring(() => ({
+    from: { width: `0`, y: 0 },
+  }));
+
+  useEffect(() => {
+    api.start({
+      y: 0,
+    });
+  });
+
   return (
     <div className='exam-pop-container'>
-      <article className='exam-pop'>
+      <animated.article className='exam-pop' style={initPop}>
         <button
           onClick={() => {
             setExamPop(false);
@@ -47,14 +68,29 @@ const FinishExamPop = ({ setExamPop }) => {
           <Link
             to={`/exam/${localStorage.getItem('currentChapter')}`}
             className='clr-bg'
+            onMouseOver={() => {
+              animateHoverBtnBg.start({ width: `0` });
+            }}
+            onMouseOut={() => {
+              animateHoverBtnBg.start({ width: `100%` });
+            }}
             onClick={() => {
               setLoadingExam(true);
             }}
           >
-            Dokończ
+            <animated.div className='cover' style={hoverBtnBg}>
+              <span>Dokończ</span>
+            </animated.div>
+            <span>Dokończ</span>
           </Link>
           <Link
             to={`/exam/${chapter}`}
+            onMouseOver={() => {
+              animateHoverBtnNonBg.start({ width: `100%` });
+            }}
+            onMouseOut={() => {
+              animateHoverBtnNonBg.start({ width: `0` });
+            }}
             onClick={() => {
               setExamStatus(`translate`);
               setLoadingExam(true);
@@ -63,10 +99,11 @@ const FinishExamPop = ({ setExamPop }) => {
               localStorage.removeItem(`examWords`);
             }}
           >
-            Generuj
+            <span>Generuj</span>
+            <animated.div className='underline' style={hoverBtnNonBg} />
           </Link>
         </div>
-      </article>
+      </animated.article>
     </div>
   );
 };

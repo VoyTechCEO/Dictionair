@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useRecoilState } from 'recoil';
 import { statsSwitchState, addChapterState, chapterDelState } from '../recoil';
+
+import { useSpring, animated } from 'react-spring';
 
 const Stats = () => {
   const [statsSwitch, setStatsSwitch] = useRecoilState(statsSwitchState);
@@ -18,8 +20,25 @@ const Stats = () => {
     return wordObject.status === `wrong`;
   });
 
+  // animations
+  const [showStatsAni, api] = useSpring(() => ({
+    from: { x: `18.75rem`, opacity: 0 },
+  }));
+
+  if (statsSwitch) {
+    api.start({
+      x: `0`,
+      opacity: 1,
+    });
+  } else {
+    api.start({
+      x: `18.75rem`,
+      opacity: 0,
+    });
+  }
+
   return (
-    <div className={statsSwitch ? 'stats show-stats' : 'stats'}>
+    <animated.div className='stats' style={showStatsAni}>
       <div className='content'>
         <div className='stat'>
           <h4>Zapamiętane słówka</h4>
@@ -61,7 +80,7 @@ const Stats = () => {
           </p>
         </div>
       </div>
-    </div>
+    </animated.div>
   );
 };
 

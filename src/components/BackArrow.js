@@ -2,10 +2,26 @@ import React from 'react';
 
 import { Link } from 'react-router-dom';
 
+import { useSpring, animated } from 'react-spring';
+
 const BackArrow = () => {
+  // animations
+  const [arrowAni, api] = useSpring(() => ({
+    from: { x: 0 },
+  }));
+
   return (
-    <Link to='/'>
-      <svg
+    <Link
+      to='/'
+      onMouseOver={() => {
+        api.start({ x: -10 });
+      }}
+      onMouseOut={() => {
+        api.start({ x: 0 });
+      }}
+    >
+      <animated.svg
+        style={arrowAni}
         width='45'
         height='45'
         version='1.1'
@@ -18,7 +34,7 @@ const BackArrow = () => {
             strokeWidth='.26458'
           />
         </g>
-      </svg>
+      </animated.svg>
     </Link>
   );
 };

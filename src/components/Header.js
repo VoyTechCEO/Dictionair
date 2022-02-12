@@ -3,9 +3,16 @@ import BackArrow from './BackArrow';
 import { useRecoilState } from 'recoil';
 import { searchTermState, statsSwitchState } from '../recoil';
 
+import { useSpring, animated } from 'react-spring';
+
 const Header = ({ isBackArrow, isSearchBar }) => {
   const [statsSwitch, setStatsSwitch] = useRecoilState(statsSwitchState);
   const [searchTerm, setSearchTerm] = useRecoilState(searchTermState);
+
+  // animations
+  const [arrowAni, api] = useSpring(() => ({
+    from: { rotateZ: 180 },
+  }));
 
   return (
     <header>
@@ -34,10 +41,20 @@ const Header = ({ isBackArrow, isSearchBar }) => {
         <button
           onClick={() => {
             setStatsSwitch(!statsSwitch);
+            if (!statsSwitch) {
+              api.start({
+                rotateZ: 270,
+              });
+            } else {
+              api.start({
+                rotateZ: 180,
+              });
+            }
           }}
         >
           <h1>Statystyki</h1>
-          <svg
+          <animated.svg
+            style={arrowAni}
             width='32'
             height='32'
             version='1.1'
@@ -50,7 +67,7 @@ const Header = ({ isBackArrow, isSearchBar }) => {
                 strokeWidth='.26458'
               />
             </g>
-          </svg>
+          </animated.svg>
         </button>
       </div>
     </header>

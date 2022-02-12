@@ -1,19 +1,33 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import CreatorName from '../components/CreatorName';
 import CreatorWords from '../components/CreatorWords';
 import Header from '../components/Header';
 import Stats from '../components/Stats';
 import { useParams } from 'react-router-dom';
 
+import { useSpring, animated } from 'react-spring';
+
 const Creator = () => {
   const { chapterName } = useParams();
+
+  // animations
+  const [initCreator, api] = useSpring(() => ({
+    from: { y: -100, opacity: 0 },
+  }));
+
+  useEffect(() => {
+    api.start({
+      y: 0,
+      opacity: 1,
+    });
+  }, []);
 
   return (
     <section>
       <Header isBackArrow={true} />
       <div className='container content-col'>
         <h1>{chapterName}</h1>
-        <article className='creator-content'>
+        <animated.article className='creator-content' style={initCreator}>
           <svg
             height='350'
             version='1.1'
@@ -28,7 +42,7 @@ const Creator = () => {
             </g>
           </svg>
           {chapterName ? <CreatorWords /> : <CreatorName />}
-        </article>
+        </animated.article>
       </div>
       <Stats />
     </section>

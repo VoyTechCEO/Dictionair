@@ -4,6 +4,8 @@ import { useRecoilState } from 'recoil';
 import { addChapterState, currentWordNumberState } from '../recoil';
 import assignWordStatus from '../util/assignWordStatus';
 
+import { useSpring, animated } from 'react-spring';
+
 const ExamTranslate = ({ setExamStatus, examWords }) => {
   const [addChapter, setAddChapter] = useRecoilState(addChapterState);
   const [currentWordNumber, setCurrentWordNumber] = useRecoilState(
@@ -14,6 +16,15 @@ const ExamTranslate = ({ setExamStatus, examWords }) => {
   });
   const [answer, setAnswer] = useState(``);
   console.log(currentWord);
+
+  // animations
+  const [hoverBtnNonBg, animateHoverBtnNonBg] = useSpring(() => ({
+    from: { width: `0`, height: `0`, y: 0 },
+  }));
+
+  const [hideBorder, animateHideBorder] = useSpring(() => ({
+    from: { borderRadius: `4px` },
+  }));
 
   return (
     <>
@@ -43,8 +54,17 @@ const ExamTranslate = ({ setExamStatus, examWords }) => {
           onChange={(e) => setAnswer(e.target.value)}
         />
       </div>
-      <button
+      <animated.button
         type='submit'
+        style={hideBorder}
+        onMouseOver={() => {
+          animateHoverBtnNonBg.start({ width: `100%`, height: `100%` });
+          animateHideBorder.start({ borderRadius: `0` });
+        }}
+        onMouseOut={() => {
+          animateHoverBtnNonBg.start({ width: `0`, height: `0` });
+          animateHideBorder.start({ borderRadius: `4px`, delay: 400 });
+        }}
         onClick={(e) => {
           e.preventDefault();
           if (answer === currentWord.wordENG) {
@@ -55,8 +75,9 @@ const ExamTranslate = ({ setExamStatus, examWords }) => {
           }
         }}
       >
-        Zatwierdź
-      </button>
+        <span>Zatwierdź</span>
+        <animated.div className='underline' style={hoverBtnNonBg} />
+      </animated.button>
     </>
   );
 };
