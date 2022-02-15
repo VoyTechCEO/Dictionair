@@ -8,12 +8,14 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    width: 50%;
+    width: 60%;
     color: $clr-100;
     margin-top: pxToRem(100px);
 
     .chapter {
-      width: 34%;
+      width: 40%;
+      max-width: pxToRem(400px);
+      min-width: pxToRem(340px);
       display: flex;
       flex-direction: column;
       margin-top: pxToRem(100px);

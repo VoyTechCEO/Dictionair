@@ -30,7 +30,6 @@ const CreatorWords = () => {
     ) {
       navigate(`/chapters`);
     }
-    console.log(JSON.parse(localStorage.getItem(`storeWords`)));
   }, [chapterList]);
 
   // animations

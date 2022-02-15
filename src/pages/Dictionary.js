@@ -15,7 +15,11 @@ const Dictionary = () => {
         <ul className='chapters'>
           {words[0].chapters.map((chapter, index) => {
             return (
-              <DictionaryChapter key={`chapterKey${index}`} chapter={chapter} />
+              <DictionaryChapter
+                key={`chapterKey${index}`}
+                chapter={chapter}
+                index={index}
+              />
             );
           })}
         </ul>

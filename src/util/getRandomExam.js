@@ -26,7 +26,6 @@ const getRandomExam = (chapterWords) => {
     });
     return passedWordNum === index;
   });
-  console.log(examWords);
   localStorage.setItem(`examWords`, JSON.stringify(examWords));
 };
 

@@ -458,7 +458,7 @@ html {
 
 body {
   font-family: "roboto";
-  background-color: #352940;
+  background-color: #1e1426;
 }
 
 body img {
@@ -482,7 +482,7 @@ header {
       -ms-flex-align: center;
           align-items: center;
   position: fixed;
-  background-color: #352940;
+  background-color: #1e1426;
   width: 100vw;
   height: 6.25rem;
   z-index: 9;
@@ -666,16 +666,12 @@ header svg {
 }
 
 .container .home-content .img-container .border-cover {
-  background-color: #352940;
+  background-color: #1e1426;
   height: 7.5rem;
-  width: 102%;
+  width: 104%;
   position: absolute;
   top: -2%;
-  right: -1%;
-}
-
-.container .home-content .img-container .border-cover:first-of-type {
-  left: -1%;
+  right: -2%;
 }
 
 .container .home-content svg {
@@ -783,7 +779,7 @@ header svg {
           align-items: center;
   padding: 0.9375rem 0;
   color: #ffffff;
-  background-color: #352940;
+  background-color: #1e1426;
   -webkit-transition: background-color 0.2s, color 0.2s;
   transition: background-color 0.2s, color 0.2s;
   width: 100%;
@@ -791,13 +787,13 @@ header svg {
 
 .stats .content button:hover {
   background-color: #ffffff;
-  color: #352940;
+  color: #1e1426;
   -webkit-transition: 0.2s;
   transition: 0.2s;
 }
 
 .stats .content button:hover svg {
-  fill: #352940;
+  fill: #1e1426;
 }
 
 .stats .content button svg {
@@ -898,7 +894,7 @@ header svg {
   border: 1px #ffffff solid;
   border-radius: 4px;
   color: #ffffff;
-  background-color: #352940;
+  background-color: #1e1426;
   -webkit-transition: background-color 0.2s, color 0.2s;
   transition: background-color 0.2s, color 0.2s;
 }
@@ -909,7 +905,7 @@ header svg {
 
 .container .chapters-content ul a.chapter-link:hover {
   background-color: #ffffff;
-  color: #352940;
+  color: #1e1426;
   -webkit-transition: 0.2s;
   transition: 0.2s;
 }
@@ -932,7 +928,7 @@ header svg {
 }
 
 .container .exam-content {
-  border: 1px #352940 solid;
+  border: 1px #1e1426 solid;
   border-radius: 4px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -958,10 +954,10 @@ header svg {
 .container .exam-content .head {
   position: absolute;
   top: -1.5625rem;
-  background-color: #352940;
+  background-color: #1e1426;
   color: #ffffff;
   font-size: 1.4375rem;
-  border: 1px #352940 solid;
+  border: 1px #1e1426 solid;
   border-radius: 4px;
   padding: 0.75rem 2.5rem;
 }
@@ -992,7 +988,7 @@ header svg {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  color: #352940;
+  color: #1e1426;
   font-weight: 400;
   font-size: 1.25rem;
   position: relative;
@@ -1025,7 +1021,7 @@ header svg {
 }
 
 .container .exam-content .input-line:last-of-type {
-  background-color: #352940;
+  background-color: #1e1426;
   color: #ffffff;
   border-radius: 4px;
   margin-top: 2.5rem;
@@ -1043,7 +1039,7 @@ header svg {
 
 .container .exam-content .input-line:last-of-type.wrong {
   background-color: #ffffff;
-  color: #352940;
+  color: #1e1426;
   margin-top: 1.25rem;
 }
 
@@ -1085,7 +1081,7 @@ header svg {
 .container .exam-content button {
   all: unset;
   cursor: pointer;
-  color: #352940;
+  color: #1e1426;
   font-size: 1.25rem;
   font-weight: 600;
   padding: 1.25rem 1.5625rem;
@@ -1100,8 +1096,8 @@ header svg {
   left: 0;
   width: 0;
   height: 0;
-  border-left: solid 1px #352940;
-  border-bottom: solid 1px #352940;
+  border-left: solid 1px #1e1426;
+  border-bottom: solid 1px #1e1426;
 }
 
 .container .exam-content .svg-container {
@@ -1123,7 +1119,7 @@ header svg {
 }
 
 .container .exam-content svg {
-  fill: #352940;
+  fill: #1e1426;
 }
 
 .container .exam-content .spinner {
@@ -1169,13 +1165,15 @@ keyframes
           justify-content: space-between;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  width: 50%;
+  width: 60%;
   color: #ffffff;
   margin-top: 6.25rem;
 }
 
 .dictionary-container .chapters .chapter {
-  width: 34%;
+  width: 40%;
+  max-width: 25rem;
+  min-width: 21.25rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1268,7 +1266,7 @@ keyframes
       -ms-flex-direction: column;
           flex-direction: column;
   background-color: #ffffff;
-  color: #352940;
+  color: #1e1426;
   padding: 2.5rem;
   min-width: 20rem;
   max-width: 25rem;
@@ -1289,7 +1287,7 @@ keyframes
 }
 
 .exam-pop-container .exam-pop svg {
-  fill: #352940;
+  fill: #1e1426;
 }
 
 .exam-pop-container .exam-pop h1 {
@@ -1319,7 +1317,7 @@ keyframes
   border: 1px #ffffff solid;
   border-radius: 4px;
   text-decoration: none;
-  color: #352940;
+  color: #1e1426;
   padding: 0.625rem 1.25rem;
   font-size: 1.25rem;
   font-weight: 600;
@@ -1328,7 +1326,7 @@ keyframes
 }
 
 .exam-pop-container .exam-pop .btn-container a.clr-bg {
-  border: 1px #352940 solid;
+  border: 1px #1e1426 solid;
   border-radius: 4px;
   font-weight: 400;
 }
@@ -1338,7 +1336,7 @@ keyframes
   left: 0;
   top: 0;
   overflow: hidden;
-  background-color: #352940;
+  background-color: #1e1426;
   color: #ffffff;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1365,7 +1363,7 @@ keyframes
   left: 0;
   width: 0;
   height: 0.0625rem;
-  background-color: #352940;
+  background-color: #1e1426;
 }
 
 .exam-pop-container .exam-pop .btn-container.after-exam-btn {
@@ -1461,7 +1459,7 @@ keyframes
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: #352940;
+  background-color: #1e1426;
   z-index: 9;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -1500,7 +1498,7 @@ keyframes
   border-radius: 4px;
   cursor: pointer;
   color: #ffffff;
-  background-color: #352940;
+  background-color: #1e1426;
   font-size: 1.1875rem;
   font-weight: 500;
   padding: 0.625rem 1.25rem;
@@ -1508,7 +1506,7 @@ keyframes
 }
 
 .container .creator-content form button:nth-of-type(2) {
-  background-color: #352940;
+  background-color: #1e1426;
   color: #ffffff;
   margin-left: 2.5rem;
   border: none;
@@ -1520,7 +1518,7 @@ keyframes
   top: 0;
   overflow: hidden;
   background-color: #ffffff;
-  color: #352940;
+  color: #1e1426;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1550,7 +1548,7 @@ keyframes
 }
 
 section {
-  background-color: #352940;
+  background-color: #1e1426;
   height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1566,7 +1564,7 @@ section {
 
 section.exam {
   background-color: #ffffff;
-  color: #352940;
+  color: #1e1426;
 }
 
 section.dictionary {

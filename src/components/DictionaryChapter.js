@@ -1,16 +1,35 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useRecoilState } from 'recoil';
 import { searchTermState } from '../recoil';
 
-const DictionaryChapter = ({ chapter }) => {
-  const [searchTerm, setSearchTerm] = useRecoilState(searchTermState);
+import { useSpring, animated } from 'react-spring';
+
+const DictionaryChapter = ({ chapter, index }) => {
+  const [searchTerm, _setSearchTerm] = useRecoilState(searchTermState);
   const searchedWords = chapter.words.filter(({ wordPL, wordENG }) => {
-    let re = new RegExp(`${searchTerm.toLowerCase()}`);
+    let re = new RegExp(
+      `${searchTerm.replace(/[^a-zA-Z ]/g, '').toLowerCase()}`
+    );
     return re.test(wordPL.toLowerCase());
   });
 
+  // animations
+  const [initChapter, api] = useSpring(() => ({
+    from: { x: index % 2 ? 100 : -100, opacity: 0 },
+  }));
+
+  useEffect(() => {
+    api.start({
+      x: 0,
+      opacity: 1,
+    });
+  }, []);
+
   return (
-    <li className={searchedWords.length > 0 ? `chapter` : `chapter hidden`}>
+    <animated.li
+      className={searchedWords.length > 0 ? `chapter` : `chapter hidden`}
+      style={initChapter}
+    >
       <h1>{chapter.name}</h1>
       <ul>
         {searchedWords.map(({ wordPL, wordENG }, index) => {
@@ -22,7 +41,7 @@ const DictionaryChapter = ({ chapter }) => {
           );
         })}
       </ul>
-    </li>
+    </animated.li>
   );
 };
 

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { useSpring, animated } from 'react-spring';
 
 const HomeOption = ({ url, title }) => {
-  // animation
+  // animations
   const [initHomeOption, api] = useSpring(() => ({
     from: { y: title === `Sprawdź się!` ? -100 : 100, opacity: 0 },
   }));

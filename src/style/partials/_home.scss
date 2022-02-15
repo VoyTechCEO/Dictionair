@@ -19,12 +19,6 @@
       cursor: pointer;
       display: flex;
       flex-direction: column;
-
-      // &:hover {
-      //   .img-container {
-      //     border: 1px $clr-100 solid;
-      //   }
-      // }
     }
 
     .border {
@@ -44,14 +38,10 @@
       .border-cover {
         background-color: $clr-900;
         height: pxToRem(120px);
-        width: 102%;
+        width: 104%;
         position: absolute;
         top: -2%;
-        right: -1%;
-
-        &:first-of-type {
-          left: -1%;
-        }
+        right: -2%;
       }
     }
 

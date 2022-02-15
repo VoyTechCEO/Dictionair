@@ -15,7 +15,6 @@ const ExamTranslate = ({ setExamStatus, examWords }) => {
     return index + 1 === currentWordNumber;
   });
   const [answer, setAnswer] = useState(``);
-  console.log(currentWord);
 
   // animations
   const [hoverBtnNonBg, animateHoverBtnNonBg] = useSpring(() => ({

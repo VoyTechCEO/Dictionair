@@ -28,7 +28,6 @@ function App() {
   }
 
   setWordsStatsList(words);
-  console.log(words);
 
   return (
     <Routes>
