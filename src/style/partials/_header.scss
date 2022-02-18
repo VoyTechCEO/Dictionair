@@ -9,7 +9,7 @@ header {
   background-color: $clr-900;
   width: 100vw;
   height: pxToRem(100px);
-  z-index: 9;
+  z-index: 9999;
 
   button {
     all: unset;
@@ -73,5 +73,19 @@ header {
 
   svg {
     fill: $clr-100;
+
+    &.radius {
+      border-radius: 4px;
+    }
+  }
+}
+
+@media (max-width: pxToRem(1150px)) {
+  header {
+    div {
+      &:nth-of-type(2) {
+        width: 50%;
+      }
+    }
   }
 }

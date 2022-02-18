@@ -58,3 +58,19 @@
     }
   }
 }
+
+// MEDIA QUERIES
+
+@media (max-width: pxToRem(500px)) {
+  .border {
+    display: none;
+  }
+
+  .home-content {
+    flex-direction: column;
+
+    .option:first-of-type {
+      margin-bottom: pxToRem(50px);
+    }
+  }
+}

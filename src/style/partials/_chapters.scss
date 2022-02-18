@@ -95,3 +95,12 @@
     }
   }
 }
+
+@media (max-width: pxToRem(300px)) {
+  .chapters-content {
+    li {
+      min-width: 100vw;
+      width: 100vw !important;
+    }
+  }
+}

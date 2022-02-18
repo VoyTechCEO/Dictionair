@@ -485,7 +485,7 @@ header {
   background-color: #1e1426;
   width: 100vw;
   height: 6.25rem;
-  z-index: 9;
+  z-index: 9999;
 }
 
 header button {
@@ -594,6 +594,16 @@ header svg {
   fill: #ffffff;
 }
 
+header svg.radius {
+  border-radius: 4px;
+}
+
+@media (max-width: 71.875rem) {
+  header div:nth-of-type(2) {
+    width: 50%;
+  }
+}
+
 .container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -686,6 +696,21 @@ header svg {
   z-index: 999;
 }
 
+@media (max-width: 31.25rem) {
+  .border {
+    display: none;
+  }
+  .home-content {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .home-content .option:first-of-type {
+    margin-bottom: 3.125rem;
+  }
+}
+
 .stats {
   position: fixed;
   right: 0;
@@ -706,6 +731,8 @@ header svg {
   opacity: 0;
   -webkit-transition: 0.2s;
   transition: 0.2s;
+  background-color: #1e1426;
+  z-index: 999;
 }
 
 .stats .content {
@@ -720,7 +747,7 @@ header svg {
       -ms-flex-pack: justify;
           justify-content: space-between;
   height: 22.5rem;
-  padding-right: 3.125rem;
+  padding: 0 3.125rem;
 }
 
 .stats .content .stat {
@@ -806,6 +833,18 @@ header svg {
   font-size: 0.9375rem;
   width: 13.75rem;
   line-height: 1rem;
+}
+
+@media (max-width: 70rem) {
+  .content {
+    border-left: solid 1px #ffffff;
+  }
+}
+
+@media (max-width: 31.25rem) {
+  .content {
+    padding: 0 1.25rem !important;
+  }
 }
 
 .container .chapters-content {
@@ -925,6 +964,13 @@ header svg {
 
 .container .chapters-content ul a.create-chapter-btn svg {
   margin-right: 1.25rem;
+}
+
+@media (max-width: 18.75rem) {
+  .chapters-content li {
+    min-width: 100vw;
+    width: 100vw !important;
+  }
 }
 
 .container .exam-content {
@@ -1131,6 +1177,38 @@ header svg {
           animation-iteration-count: infinite;
 }
 
+@media (max-width: 34.375rem) {
+  .exam-content {
+    width: 100vw !important;
+  }
+  .exam-content input {
+    width: 80vw !important;
+  }
+}
+
+@media (max-width: 30rem) {
+  .exam-content {
+    width: 100vw !important;
+    border: none !important;
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+  }
+  .exam-content h1.head {
+    display: none;
+  }
+  .exam-content h4.exam-num {
+    padding: 0.5rem 1.25rem !important;
+    font-size: 1.4375rem !important;
+    right: unset !important;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0);
+            transform: translate(-50%, 0);
+  }
+  .exam-content .input-line:first-of-type label {
+    display: none;
+  }
+}
+
 /* ====== 
 keyframes
 ====== */
@@ -1173,7 +1251,7 @@ keyframes
 .dictionary-container .chapters .chapter {
   width: 40%;
   max-width: 25rem;
-  min-width: 21.25rem;
+  min-width: 18.75rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1214,8 +1292,56 @@ keyframes
   margin-bottom: 1.25rem;
 }
 
+.dictionary-container .chapters .chapter ul li p {
+  width: 50%;
+}
+
+.dictionary-container .chapters .chapter ul li p:last-of-type {
+  text-align: end;
+}
+
 .dictionary-container .chapters .hidden {
   display: none;
+}
+
+@media (max-width: 65.625rem) {
+  .dictionary-container .chapters {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .dictionary-container .chapters .chapter {
+    min-width: 25rem;
+    max-width: 31.25rem;
+  }
+}
+
+@media (max-width: 32.8125rem) {
+  .dictionary-container .chapters .chapter {
+    min-width: 12.5rem;
+    width: 100%;
+  }
+  .dictionary-container .chapters .chapter h1 {
+    text-align: center;
+  }
+  .dictionary-container .chapters .chapter li {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-bottom: 1.875rem !important;
+  }
+  .dictionary-container .chapters .chapter li p {
+    width: 100%;
+    text-align: center;
+  }
+  .dictionary-container .chapters .chapter li p:last-of-type {
+    text-align: center !important;
+    margin-top: 0.625rem;
+  }
 }
 
 .container .loading-content svg {
@@ -1377,6 +1503,29 @@ keyframes
     background-color: rgba(0, 0, 0, 0.2);
     -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
+  }
+}
+
+@media (max-width: 21.25rem) {
+  .exam-pop-container .exam-pop {
+    min-width: 100vw !important;
+  }
+  .exam-pop-container .exam-pop p {
+    text-align: center;
+  }
+  .exam-pop-container .exam-pop .btn-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    height: 6.25rem;
+    margin-top: 2.5rem !important;
   }
 }
 
@@ -1545,6 +1694,21 @@ keyframes
   width: 0;
   height: 0.0625rem;
   background-color: #ffffff;
+}
+
+@media (max-width: 39.375rem) {
+  .creator-content svg {
+    display: none;
+  }
+  .creator-content form {
+    padding: 0 !important;
+  }
+}
+
+@media (max-width: 21.875rem) {
+  .creator-content form input {
+    min-width: 85vw !important;
+  }
 }
 
 section {
