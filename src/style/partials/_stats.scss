@@ -11,13 +11,15 @@
   transform: translate(pxToRem(300px));
   opacity: 0;
   transition: 0.2s;
+  background-color: $clr-900;
+  z-index: 999;
 
   .content {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: pxToRem(360px);
-    padding-right: pxToRem(50px);
+    padding: 0 pxToRem(50px);
 
     .stat {
       display: flex;
@@ -80,5 +82,17 @@
       width: pxToRem(220px);
       line-height: pxToRem(16px);
     }
+  }
+}
+
+@media (max-width: pxToRem(1120px)) {
+  .content {
+    border-left: solid 1px $clr-100;
+  }
+}
+
+@media (max-width: pxToRem(500px)) {
+  .content {
+    padding: 0 pxToRem(20px) !important;
   }
 }

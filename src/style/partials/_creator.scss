@@ -127,3 +127,25 @@
     }
   }
 }
+
+@media (max-width: pxToRem(630px)) {
+  .creator-content {
+    svg {
+      display: none;
+    }
+
+    form {
+      padding: 0 !important;
+    }
+  }
+}
+
+@media (max-width: pxToRem(350px)) {
+  .creator-content {
+    form {
+      input {
+        min-width: 85vw !important;
+      }
+    }
+  }
+}

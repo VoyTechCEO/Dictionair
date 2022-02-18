@@ -4,6 +4,8 @@ import { statsSwitchState, addChapterState, chapterDelState } from '../recoil';
 
 import { useSpring, animated } from 'react-spring';
 
+import { useMediaQuery } from 'react-responsive';
+
 const Stats = () => {
   const [statsSwitch, setStatsSwitch] = useRecoilState(statsSwitchState);
   const [addChapter, setAddChapter] = useRecoilState(addChapterState);
@@ -19,6 +21,8 @@ const Stats = () => {
   const wrongWords = wordsStatsList.filter((wordObject) => {
     return wordObject.status === `wrong`;
   });
+
+  const tablet630 = useMediaQuery({ query: '(max-width: 630px)' });
 
   // animations
   const [showStatsAni, api] = useSpring(() => ({
@@ -41,15 +45,15 @@ const Stats = () => {
     <animated.div className='stats' style={showStatsAni}>
       <div className='content'>
         <div className='stat'>
-          <h4>Zapamiętane słówka</h4>
+          <h4>Zapamiętane {!tablet630 && 'słówka'}</h4>
           <h4>{correctWords.length}</h4>
         </div>
         <div className='stat'>
-          <h4>Problematyczne słówka</h4>
+          <h4>Problematyczne {!tablet630 && 'słówka'}</h4>
           <h4>{wrongWords.length}</h4>
         </div>
         <div className='stat'>
-          <h4>Oczekujące słówka</h4>
+          <h4>Oczekujące {!tablet630 && 'słówka'}</h4>
           <h4>{unknownWords.length}</h4>
         </div>
         <div className='reset-container'>
