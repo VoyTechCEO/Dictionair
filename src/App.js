@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Home from './pages/Home';
 import Loading from './pages/Loading';
 import Chapters from './pages/Chapters';
@@ -10,7 +10,6 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 
 import { addChapterState, loadingState, wordsState } from './recoil';
 import { useRecoilState } from 'recoil';
-import { useEffect } from 'react/cjs/react.development';
 import getWords from './util/getWords';
 import setWordsStatsList from './util/setWordsStatsList';
 

@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import CreatorInput from '../components/CreatorInput';
 import { useNavigate, useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react/cjs/react.development';
 import { useRecoilState } from 'recoil';
 import { addChapterState, wordsState } from '../recoil';
 

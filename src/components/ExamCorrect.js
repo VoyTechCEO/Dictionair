@@ -1,5 +1,4 @@
-import React from 'react';
-import { useEffect } from 'react/cjs/react.development';
+import React, { useEffect } from 'react';
 import { useRecoilState } from 'recoil';
 import { afterExamPopState, currentWordNumberState } from '../recoil';
 import { useNavigate } from 'react-router-dom';
