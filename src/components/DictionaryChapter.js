@@ -8,7 +8,7 @@ const DictionaryChapter = ({ chapter, index }) => {
   const [searchTerm, _setSearchTerm] = useRecoilState(searchTermState);
   const searchedWords = chapter.words.filter(({ wordPL, wordENG }) => {
     let re = new RegExp(
-      `${searchTerm.replace(/[^a-zA-Z ]/g, '').toLowerCase()}`
+      `${searchTerm.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '').toLowerCase()}`
     );
     return re.test(wordPL.toLowerCase());
   });
