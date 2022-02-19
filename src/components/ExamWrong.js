@@ -13,6 +13,18 @@ const ExamWrong = ({ setExamStatus, examWords, userAnswer }) => {
   const currentWord = examWords.find((word, index) => {
     return index + 1 === currentWordNumber;
   });
+  const nextQuestion = (e) => {
+    e.preventDefault();
+    if (currentWordNumber < examWords.length) {
+      setCurrentWordNumber(currentWordNumber + 1);
+    } else {
+      setCurrentWordNumber(1);
+      localStorage.removeItem(`examWords`);
+      navigate(`/`);
+      setAfterExamPop(true);
+    }
+    setExamStatus(`translate`);
+  };
 
   const navigate = useNavigate();
 
@@ -76,6 +88,7 @@ const ExamWrong = ({ setExamStatus, examWords, userAnswer }) => {
           type='text'
           id='translation'
           name='translation'
+          autoFocus
           readOnly
           value={currentWord.wordENG}
         />
@@ -91,18 +104,7 @@ const ExamWrong = ({ setExamStatus, examWords, userAnswer }) => {
           animateHoverBtnNonBg.start({ width: `0`, height: `0` });
           animateHideBorder.start({ borderRadius: `4px`, delay: 400 });
         }}
-        onClick={(e) => {
-          e.preventDefault();
-          if (currentWordNumber < examWords.length) {
-            setCurrentWordNumber(currentWordNumber + 1);
-          } else {
-            setCurrentWordNumber(1);
-            localStorage.removeItem(`examWords`);
-            navigate(`/`);
-            setAfterExamPop(true);
-          }
-          setExamStatus(`translate`);
-        }}
+        onClick={nextQuestion}
       >
         <span>Następne</span>
         <animated.div className='underline' style={hoverBtnNonBg} />
