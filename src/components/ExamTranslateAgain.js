@@ -66,7 +66,14 @@ const ExamTranslateAgain = ({ setExamStatus, examWords, setUserAnswer }) => {
         }}
         onClick={(e) => {
           e.preventDefault();
-          if (answer === currentWord.wordENG) {
+          const currentWordFromUpper = currentWord.wordENG.replace(
+            currentWord.wordENG[0],
+            currentWord.wordENG[0].toUpperCase()
+          );
+          if (
+            answer === currentWord.wordENG.toLowerCase() ||
+            answer === currentWordFromUpper
+          ) {
             setExamStatus(`correct`);
             assignWordStatus(`correct`, currentWord, setAddChapter);
           } else {
