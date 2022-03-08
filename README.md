@@ -1,3 +1,5 @@
+![logo](/dictionairLogo.svg)
+
 # Dictionair
 
 Link: https://dictionair.netlify.app/
