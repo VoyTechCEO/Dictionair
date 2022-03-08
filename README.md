@@ -1,4 +1,5 @@
-![logo](/dictionairLogo.svg)
+
+<img src="/dictionairLogo.svg" width=200 height=200 />
 
 # Dictionair
 
