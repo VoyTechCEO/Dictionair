@@ -1,5 +1,5 @@
 
-<img src="/dictionairLogo.svg" width=200 height=200 />
+<img src="/dictionairLogo.svg" width=500 height=500 />
 
 # Dictionair
 
